@@ -1,1 +1,628 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"/><title>Sibgah Rabbani Kusuma</title><script defer="defer" src="/static/js/main.4757bb9b.js"></script><link href="/static/css/main.2b63dd47.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sibgah Rabbani Kusuma - Front-end Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Sibgah</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Sibgah Rabbani Kusuma</h1>
+            <p data-aos="fade-up" data-aos-delay="200"><span class="typing-text"></span><span class="cursor">|</span></p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2>About Me</h2>
+                    <p>Experienced Content Creator and UI UX Design with a work history in the technology and F&B Business industry. Skilled in Adobe Photoshop, Adobe Premiere pro, Adobe After Effects, Adobe Illustrator For Content Creation and Figma For UI Design.</p>
+                </div>
+                <div class="skills-grid" data-aos="fade-left">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="logo/PHP-logo.svg.png" alt="PHP Logo">
+                        </div>
+                        <h3>Web Development</h3>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="logo/flutter.png" alt="Flutter Logo">
+                        </div>
+                        <h3>Mobile Development</h3>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="logo/Adobe_Premiere_Pro_CC_icon.svg.png" alt="Premiere Pro Logo">
+                        </div>
+                        <h3>Content Creating</h3>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <img src="logo/Figma-logo.svg.png" alt="Figma Logo">
+                        </div>
+                        <h3>UI/UX</h3>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 data-aos="fade-up">Selected Projects</h2>
+            <div class="project-categories" data-aos="fade-up">
+                <button class="category-btn active" data-category="all">All Projects</button>
+                <button class="category-btn" data-category="frontend">Front-end Development</button>
+                <button class="category-btn" data-category="content">Content Creation</button>
+            </div>
+            <div class="projects-grid">
+                <!-- POS Application -->
+                <div class="project-card" data-aos="fade-up" data-category="frontend">
+                    <div class="project-image">
+                        <img src="3dAssetThumbnail\cangopi.png" alt="POS Application">
+                    </div>
+                    <div class="project-content">
+                        <h3>POS Application</h3>
+                        <p>A responsive POS web application with modern design and smooth animations.</p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                        </div>
+                        <button class="project-link view-gallery" data-project="pos">View Project</button>
+                    </div>
+                </div>
+
+                <!-- EatEase App -->
+                <div class="project-card" data-aos="fade-up" data-category="frontend" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="3dAssetThumbnail\a.jpg" alt="EatEase App">
+                    </div>
+                    <div class="project-content">
+                        <h3>EatEase</h3>
+                        <p>A food delivery mobile application with intuitive UI/UX design.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Dart</span>
+                            <span>Firebase</span>
+                            <span>Figma</span>
+                        </div>
+                        <button class="project-link view-gallery" data-project="eatease">View Project</button>
+                    </div>
+                </div>
+
+                <!-- Cheetask App -->
+                <div class="project-card" data-aos="fade-up" data-category="frontend" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="3dAssetThumbnail\TODO.png" alt="Cheetask App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Cheetask</h3>
+                        <p>A task management application with clean and modern interface.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Dart</span>
+                            <span>Firebase</span>
+                            <span>Figma</span>
+                        </div>
+                        <button class="project-link view-gallery" data-project="cheetask">View Project</button>
+                    </div>
+                </div>
+
+                <!-- Product Advertisement -->
+                <div class="project-card" data-aos="fade-up" data-category="content" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="3dAssetThumbnail\sosmed.png" alt="Product Advertisement">
+                    </div>
+                    <div class="project-content">
+                        <h3>Product Advertisement Series</h3>
+                        <p>Engaging video and image-based content for product promotion.</p>
+                        <div class="project-tech">
+                            <span>Video Editing</span>
+                            <span>Graphic Design</span>
+                            <span>Social Media</span>
+                            <span>Marketing</span>
+                        </div>
+                        <button class="project-link view-gallery" data-project="content">View Project</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Galleries -->
+            <div class="project-galleries">
+                <!-- POS Gallery -->
+                <div class="project-gallery" id="pos-gallery">
+                    <div class="gallery-header">
+                        <h3>POS Application Gallery</h3>
+                        <button class="close-gallery">×</button>
+                    </div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\cangopi.png" alt="POS Dashboard">
+                            <p>Dashboard Overview</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\cangopi.png" alt="POS Transactions">
+                            <p>Transaction Management</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\cangopi.png" alt="POS Inventory">
+                            <p>Inventory Control</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EatEase Gallery -->
+                <div class="project-gallery" id="eatease-gallery">
+                    <div class="gallery-header">
+                        <h3>EatEase App Gallery</h3>
+                        <button class="close-gallery">×</button>
+                    </div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\TODO.png" alt="EatEase Home">
+                            <p>Home Screen</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\TODO.png" alt="EatEase Menu">
+                            <p>Menu Selection</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\TODO.png" alt="EatEase Order">
+                            <p>Order Process</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cheetask Gallery -->
+                <div class="project-gallery" id="cheetask-gallery">
+                    <div class="gallery-header">
+                        <h3>Cheetask App Gallery</h3>
+                        <button class="close-gallery">×</button>
+                    </div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\TODO.png" alt="Cheetask Tasks">
+                            <p>Task Management</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\TODO.png" alt="Cheetask Calendar">
+                            <p>Calendar View</p>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="3dAssetThumbnail\TODO.png" alt="Cheetask Progress">
+                            <p>Progress Tracking</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Creation Gallery -->
+                <div class="project-gallery" id="content-gallery">
+                    <div class="gallery-header">
+                        <h3>Content Creation Gallery</h3>
+                        <button class="close-gallery">×</button>
+                    </div>
+                    <div class="gallery-grid">
+                        <!-- Muriafresh Social Media Posts -->
+                        <div class="gallery-section">
+                            <h4>Muriafresh</h4>
+                            <div class="gallery-items">
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (1).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (2).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (3).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (4).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (5).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (6).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (7).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (8).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Muriafresh/Feed (9).jpg" alt="Muriafresh Social Media Post">
+                                    <p>Muriafresh Social Media Post</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Madu Saheela Social Media Posts -->
+                        <div class="gallery-section">
+                            <h4>Madu Saheela</h4>
+                            <div class="gallery-items">
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Carousel1 (1).jpg" alt="Madu Saheela Carousel">
+                                    <p>Madu Saheela Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Carousel1 (2).jpg" alt="Madu Saheela Carousel">
+                                    <p>Madu Saheela Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (1).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (2).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (3).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (4).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (5).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (6).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (7).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (8).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Madu Saheela/Feed (9).jpg" alt="Madu Saheela Feed">
+                                    <p>Madu Saheela Feed Post</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kurma Ajwa Royal Social Media Posts -->
+                        <div class="gallery-section">
+                            <h4>Kurma Ajwa Royal</h4>
+                            <div class="gallery-items">
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Carousel1 (1).jpg" alt="Kurma Ajwa Royal Carousel">
+                                    <p>Kurma Ajwa Royal Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Carousel1 (2).jpg" alt="Kurma Ajwa Royal Carousel">
+                                    <p>Kurma Ajwa Royal Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Carousel1 (3).jpg" alt="Kurma Ajwa Royal Carousel">
+                                    <p>Kurma Ajwa Royal Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Carousel1 (4).jpg" alt="Kurma Ajwa Royal Carousel">
+                                    <p>Kurma Ajwa Royal Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Carousel1 (5).jpg" alt="Kurma Ajwa Royal Carousel">
+                                    <p>Kurma Ajwa Royal Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Carousel1 (6).jpg" alt="Kurma Ajwa Royal Carousel">
+                                    <p>Kurma Ajwa Royal Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Carousel1 (7).jpg" alt="Kurma Ajwa Royal Carousel">
+                                    <p>Kurma Ajwa Royal Carousel Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (1).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (2).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (3).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (4).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (5).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (6).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (7).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (8).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/Kurma Ajwa Royal/Feedroyal (9).jpg" alt="Kurma Ajwa Royal Feed">
+                                    <p>Kurma Ajwa Royal Feed Post</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DurenKenji Social Media Posts -->
+                        <div class="gallery-section">
+                            <h4>DurenKenji</h4>
+                            <div class="gallery-items">
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (1).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (2).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (3).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (4).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (5).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (6).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (7).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (8).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (9).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (10).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Social Media Post/DurenKenji/DurenKenji (11).jpg" alt="DurenKenji Social Media Post">
+                                    <p>DurenKenji Social Media Post</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Website Banners -->
+                        <div class="gallery-section">
+                            <h4>Website Banners</h4>
+                            <div class="gallery-items">
+                                <div class="gallery-item">
+                                    <img src="Website Banner/Banner1 (1).jpg" alt="Website Banner">
+                                    <p>Website Banner Design</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Website Banner/Banner1 (2).jpg" alt="Website Banner">
+                                    <p>Website Banner Design</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Website Banner/Banner1 (3).jpg" alt="Website Banner">
+                                    <p>Website Banner Design</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <img src="Website Banner/Banner1 (4).jpg" alt="Website Banner">
+                                    <p>Website Banner Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 data-aos="fade-up">Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item" data-aos="fade-up">
+                    <h3>Front-end Developer</h3>
+                    <p class="company">CanNgopi • Jul 2024 - Dec 2024</p>
+                    <p class="description">Designed and developed a responsive POS web application using HTML, CSS, and JavaScript. Implemented
+                    key features such as inventory management, transaction processing, order summaries, and discount
+                    systems. Focused on enhancing UI intuitiveness, optimizing performance, and ensuring seamless backend
+                    integration for a smooth user experience across devices.</p>
+                </div>
+                <div class="experience-item" data-aos="fade-up">
+                    <h3>UI/UX Designer</h3>
+                    <p class="company">Freelance PT Anak Pipa • Jun 2023 - Jul 2023</p>
+                    <p class="description">Led the UI/UX design for a pipeline sales marketplace website, crafting an intuitive and user-centric
+                    interface. Conducted user research to understand business needs and translated them into functional
+                    designs using Figma. Performed usability testing and iterative improvements to enhance the overall
+                    experience and usability.</p>
+                </div>
+                <div class="experience-item" data-aos="fade-up">
+                    <h3>Content Creator</h3>
+                    <p class="company">PT Demuria Agung • Aug 2021 - Feb 2022</p>
+                    <p class="description">Developed and managed product advertisements using video and image-based content to enhance product appeal, 
+                        while creating engaging social media feed content to strengthen brand awareness. Designed product banners for promotional and 
+                        marketing purposes and documented events through video for corporate publication and archival needs. Conceptualized and produced 
+                        video content with captivating ideas to increase audience engagement. Additionally, created design assets and arranged landing 
+                        page layouts to support digital campaigns and drive sales conversions.</p>
+                </div>
+                    <div class="experience-item" data-aos="fade-up">
+                    <h3>Graphic Design</h3>
+                    <p class="company">STKIP SURYA • Aug 2020 - Mar 2020</p>
+                    <p class="description">Created visually appealing poster designs for various promotional needs and assisted with office data entry to 
+                        support administrative functions. Edited university graduation videos to capture memorable moments and ensure high-quality results. 
+                        Additionally, provided computer troubleshooting support, resolving technical issues to maintain efficient office operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 data-aos="fade-up">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Email</h3>
+                        <p>sibgahrk190@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>+62 813-1414-7941</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Kab. Tangerang, Pagedangan, Medang Lestari. Indonesia</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/sibgah" target="_blank" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/sibgahh" target="_blank" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/sibgahh" target="_blank" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" data-aos="fade-left">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required placeholder="Your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required placeholder="Message subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="6" required placeholder="Your message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        emailjs.init("K5kCrSVNMbGjCi-Re");
+    </script>
+</body>
+</html> 
