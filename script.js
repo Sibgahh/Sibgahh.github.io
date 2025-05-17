@@ -205,9 +205,6 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', function() {
     const categoryButtons = document.querySelectorAll('.category-btn');
     const projectCards = document.querySelectorAll('.project-card');
-    const viewGalleryButtons = document.querySelectorAll('.view-gallery');
-    const closeGalleryButtons = document.querySelectorAll('.close-gallery');
-    const galleries = document.querySelectorAll('.project-gallery');
 
     // Category filtering
     categoryButtons.forEach(button => {
@@ -224,111 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     AOS.refresh();
                 } else {
                     card.classList.add('hidden');
-                }
-            });
-        });
-    });
-
-    // Gallery functionality
-    viewGalleryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const projectId = button.getAttribute('data-project');
-            const gallery = document.getElementById(`${projectId}-gallery`);
-            
-            if (gallery) {
-                gallery.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            }
-        });
-    });
-
-    closeGalleryButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const gallery = button.closest('.project-gallery');
-            if (gallery) {
-                gallery.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
-            }
-        });
-    });
-
-    // Close gallery when clicking outside
-    galleries.forEach(gallery => {
-        gallery.addEventListener('click', (e) => {
-            if (e.target === gallery) {
-                gallery.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    });
-
-    // Close gallery with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            galleries.forEach(gallery => {
-                gallery.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        }
-    });
-});
-
-// Gallery functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const galleryButtons = document.querySelectorAll('.view-project');
-    const contentGallery = document.getElementById('content-gallery');
-    const closeGallery = document.querySelector('.close-gallery');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    // Open gallery when clicking view project button
-    galleryButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            contentGallery.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    // Close gallery when clicking close button
-    closeGallery.addEventListener('click', function() {
-        contentGallery.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    // Close gallery when clicking outside
-    contentGallery.addEventListener('click', function(e) {
-        if (e.target === contentGallery) {
-            contentGallery.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Add click event to gallery items for lightbox
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const img = this.querySelector('img');
-            const lightbox = document.createElement('div');
-            lightbox.className = 'lightbox';
-            lightbox.innerHTML = `
-                <div class="lightbox-content">
-                    <img src="${img.src}" alt="${img.alt}">
-                    <button class="close-lightbox">×</button>
-                </div>
-            `;
-            document.body.appendChild(lightbox);
-            document.body.style.overflow = 'hidden';
-
-            // Close lightbox
-            const closeLightbox = lightbox.querySelector('.close-lightbox');
-            closeLightbox.addEventListener('click', function() {
-                lightbox.remove();
-                document.body.style.overflow = 'auto';
-            });
-
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    lightbox.remove();
-                    document.body.style.overflow = 'auto';
                 }
             });
         });
