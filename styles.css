@@ -72,13 +72,6 @@ p {
     z-index: 1000;
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 4rem;
-}
-
 .logo {
     display: flex;
     align-items: center;
@@ -96,6 +89,13 @@ p {
 .logo img:hover {
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
 }
 
 .nav-links a {
