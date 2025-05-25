@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - Sibgah Rabbani Kusuma</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Project Detail Styles */
+        .project-detail {
+            padding: 120px 0 60px;
+            min-height: 100vh;
+        }
+        
+        .project-detail-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .project-detail-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .project-detail-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            color: var(--text-color-light);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .project-tag {
+            background-color: var(--primary-color-light);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Slideshow styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        /* Compact view for mobile app designs */
+        .slideshow-container.compact {
+            max-width: 400px;
+            margin: 0 auto 60px;
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+        
+        /* Compact view image styling */
+        .slideshow-container.compact .slide img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            background: white;
+        }
+        
+        /* Adjust navigation for compact view */
+        .slideshow-container.compact .prev,
+        .slideshow-container.compact .next {
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+        
+        .slideshow-container.compact .prev {
+            left: 10px;
+        }
+        
+        .slideshow-container.compact .next {
+            right: 10px;
+        }
+        
+        .slideshow-container.compact .slide-counter {
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.3s ease;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            user-select: none;
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .prev {
+            left: 20px;
+        }
+        
+        .next {
+            right: 20px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .dots-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background-color: var(--primary-color);
+        }
+        
+        .slide-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-5px);
+        }
+        
+        .back-button svg {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* Project gallery for different collections */
+        .project-collections {
+            margin-top: 60px;
+        }
+        
+        .collection-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .collection-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .collection-header p {
+            color: var(--text-color-light);
+        }
+        
+        /* Collection cards styles */
+        .collection-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .collection-card {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 150px;
+        }
+        
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .collection-card .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 10px;
+            color: white;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .collection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .collection-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .collection-card.active {
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            border: 2px solid var(--primary-color);
+        }
+        
+        /* Other Projects Navigation Section */
+        .other-projects {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .other-projects h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+        }
+        
+        .other-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .project-nav-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .project-nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent);
+        }
+        
+        .project-nav-card .nav-card-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-nav-card .nav-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-nav-card:hover .nav-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-nav-card .nav-card-content {
+            padding: 20px;
+        }
+        
+        .project-nav-card .nav-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .project-nav-card .nav-card-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        
+        .project-nav-card .nav-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .project-nav-card .nav-card-tag {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .project-detail {
+                padding: 100px 0 40px;
+            }
+            
+            .project-detail-header h1 {
+                font-size: 2rem;
+            }
+            
+            .prev, .next {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .collection-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .collection-card {
+                height: 120px;
+            }
+            
+            /* Compact view adjustments for mobile */
+            .slideshow-container.compact {
+                max-width: 300px;
+                padding: 15px;
+            }
+            
+            .slideshow-container.compact .prev,
+            .slideshow-container.compact .next {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+            
+            /* Other projects responsive adjustments */
+            .other-projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .project-nav-card .nav-card-image {
+                height: 140px;
+            }
+            
+            .project-nav-card .nav-card-content {
+                padding: 15px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .collection-cards {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            
+            .collection-card {
+                height: 140px;
+            }
+            
+            /* Further compact view adjustments for small mobile */
+            .slideshow-container.compact {
+                max-width: 280px;
+                padding: 10px;
+            }
+            
+            .slideshow-container.compact .prev,
+            .slideshow-container.compact .next {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            /* Other projects mobile adjustments */
+            .other-projects {
+                margin-top: 60px;
+                padding-top: 30px;
+            }
+            
+            .other-projects h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .other-projects-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .project-nav-card .nav-card-image {
+                height: 160px;
+            }
+            
+            .project-nav-card .nav-card-content {
+                padding: 15px;
+            }
+            
+            .project-nav-card .nav-card-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Sibgah</div>
+            <div class="nav-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#projects">Projects</a>
+                <a href="index.html#experience">Experience</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Project Detail Section -->
+    <section class="project-detail">
+        <div class="container">
+            <a href="index.html#projects" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Projects
+            </a>
+            
+            <div class="project-detail-header">
+                <h1 id="project-title">Product Advertisement Series</h1>
+                <p id="project-description">Engaging video and image-based content for product promotion across various brands.</p>
+                <div class="project-tags">
+                    <!-- Project tags will be generated dynamically with JavaScript -->
+                </div>
+            </div>
+            
+            <div class="slideshow-container">
+                <!-- Slides will be generated dynamically with JavaScript -->
+                <div class="slide-counter">1 / 0</div>
+                <div class="prev">❮</div>
+                <div class="next">❯</div>
+            </div>
+            
+            <div class="dots-container">
+                <!-- Dots will be generated dynamically with JavaScript -->
+            </div>
+            
+            <div class="collection-cards">
+                <!-- Collection cards will be generated dynamically with JavaScript -->
+            </div>
+            
+            <div class="other-projects">
+                <h3>Other Projects</h3>
+                <div class="other-projects-grid">
+                    <!-- Other project cards will be generated dynamically with JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true
+        });
+        
+        // Project-specific collections - Define this first before using it
+        const projectCollections = {
+            'content-creation': {
+                'muriafresh': {
+                    path: 'Social Media Post/Muriafresh/',
+                    images: [
+                        'Feed (1).jpg',
+                        'Feed (2).jpg',
+                        'Feed (3).jpg',
+                        'Feed (4).jpg',
+                        'Feed (5).jpg',
+                        'Feed (6).jpg',
+                        'Feed (7).jpg',
+                        'Feed (8).jpg',
+                        'Feed (9).jpg'
+                    ]
+                },
+                'madu-saheela': {
+                    path: 'Social Media Post/Madu Saheela/',
+                    images: [
+                        'Carousel1 (1).jpg',
+                        'Carousel1 (2).jpg',
+                        'Feed (1).jpg',
+                        'Feed (2).jpg',
+                        'Feed (3).jpg',
+                        'Feed (4).jpg',
+                        'Feed (5).jpg',
+                        'Feed (6).jpg',
+                        'Feed (7).jpg',
+                        'Feed (8).jpg',
+                        'Feed (9).jpg'
+                    ]
+                },
+                'kurma-ajwa': {
+                    path: 'Social Media Post/Kurma Ajwa Royal/',
+                    images: [
+                        'Carousel1 (1).jpg',
+                        'Carousel1 (2).jpg',
+                        'Carousel1 (3).jpg',
+                        'Carousel1 (4).jpg',
+                        'Carousel1 (5).jpg',
+                        'Carousel1 (6).jpg',
+                        'Carousel1 (7).jpg',
+                        'Feedroyal (1).jpg',
+                        'Feedroyal (2).jpg',
+                        'Feedroyal (3).jpg',
+                        'Feedroyal (4).jpg',
+                        'Feedroyal (5).jpg',
+                        'Feedroyal (6).jpg',
+                        'Feedroyal (7).jpg',
+                        'Feedroyal (8).jpg',
+                        'Feedroyal (9).jpg'
+                    ]
+                },
+                'duren-kenji': {
+                    path: 'Social Media Post/DurenKenji/',
+                    images: [
+                        'DurenKenji (1).jpg',
+                        'DurenKenji (2).jpg',
+                        'DurenKenji (3).jpg',
+                        'DurenKenji (4).jpg',
+                        'DurenKenji (5).jpg',
+                        'DurenKenji (6).jpg',
+                        'DurenKenji (7).jpg',
+                        'DurenKenji (8).jpg',
+                        'DurenKenji (9).jpg',
+                        'DurenKenji (10).jpg',
+                        'DurenKenji (11).jpg'
+                    ]
+                },
+                'website-banner': {
+                    path: 'Website Banner/',
+                    images: [
+                        'Banner1 (1).jpg',
+                        'Banner1 (2).jpg',
+                        'Banner1 (3).jpg',
+                        'Banner1 (4).jpg'
+                    ]
+                }
+            },
+            'eatease-app': {
+                'design': {
+                    path: 'eatease/',
+                    images: [
+                        'design (1).jpg',
+                        'design (2).jpg',
+                        'design (3).jpg',
+                        'design (4).jpg',
+                        'design (5).jpg',
+                        'design (6).jpg'
+                    ]
+                }
+            },
+            'pos-app': {
+                'screens': {
+                    path: 'POS/',
+                    images: [
+                        'Login.png',
+                        'Login (1).png',
+                        'Kasir - Dinein.png',
+                        'Kasir - Terima Pesanan.png',
+                        'Kasir - Lihat Notes.png',
+                        'Kasir - Riwayat Pesanan.png'
+                    ]
+                }
+            },
+            'cheetask-app': {
+                'design': {
+                    path: 'cheetask/',
+                    images: [
+                        'design (1).jpg',
+                        'design (2).jpg',
+                        'design (3).jpg',
+                        'design (4).jpg'
+                    ]
+                }
+            },
+            'summarecon-app': {
+                'screens': {
+                    path: 'summarecon/',
+                    images: [
+                        'iPhone 14 - 2.png',
+                        'iPhone 14 - 5.png',
+                        'iPhone 8 - 6.png',
+                        'iPhone 8 - 7.png',
+                        'iPhone 14 - 10.png',
+                        'iPhone 14 - 14.png',
+                        'iPhone 14 - 17.png'
+                    ]
+                }
+            },
+            'anakpipa-app': {
+                'screens': {
+                    path: 'anakpipa/',
+                    images: [
+                        'Home.png',
+                        'Product (2).png',
+                        'Product (3).png',
+                        'Contact.png',
+                        'ABout.png',
+                        '404.png'
+                    ]
+                }
+            }
+        };
+        
+        // Get URL parameters first
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+        const projectTitle = urlParams.get('title');
+        const projectDescription = urlParams.get('description');
+        
+        console.log('Project ID:', projectId);
+        console.log('Project Title:', projectTitle);
+        console.log('Project Description:', projectDescription);
+        
+        // Set current project type and collections
+        let currentProjectId = projectId || 'content-creation';
+        let currentCollections = projectCollections[currentProjectId] || projectCollections['content-creation'];
+        let firstCollectionKey = Object.keys(currentCollections)[0];
+        let activeFolderName = firstCollectionKey;
+        
+        // Slideshow functionality variables
+        let currentSlideIndex = 0;
+        let slides = [];
+        
+        console.log('Current Project ID:', currentProjectId);
+        console.log('Current Collections:', currentCollections);
+        console.log('Active Folder Name:', activeFolderName);
+        
+        // Update project title and description if provided in URL
+        if (projectTitle) {
+            document.getElementById('project-title').textContent = decodeURIComponent(projectTitle);
+        }
+        
+        if (projectDescription) {
+            document.getElementById('project-description').textContent = decodeURIComponent(projectDescription);
+        }
+        
+        // Update project tags based on project type
+        function updateProjectTags() {
+            const tagsContainer = document.querySelector('.project-tags');
+            tagsContainer.innerHTML = '';
+            
+            let tags = [];
+            
+            switch(currentProjectId) {
+                case 'content-creation':
+                    tags = ['Video Editing', 'Graphic Design', 'Social Media', 'Marketing'];
+                    break;
+                case 'eatease-app':
+                    tags = ['Flutter', 'Dart', 'Firebase', 'UI/UX Design'];
+                    break;
+                case 'pos-app':
+                    tags = ['HTML5', 'CSS3', 'JavaScript', 'PHP'];
+                    break;
+                case 'cheetask-app':
+                    tags = ['Flutter', 'Dart', 'Firebase', 'Task Management'];
+                    break;
+                case 'summarecon-app':
+                    tags = ['Figma', 'UI/UX Design', 'Mobile App'];
+                    break;
+                default:
+                    tags = ['Design', 'Development'];
+            }
+            
+            tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'project-tag';
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
+        }
+        
+        // Update tags
+        updateProjectTags();
+        
+        // Apply compact view for app/UI design projects
+        function applyCompactView() {
+            const slideshowContainer = document.querySelector('.slideshow-container');
+            const isAppProject = ['eatease-app', 'cheetask-app', 'summarecon-app', 'anakpipa-app'].includes(currentProjectId);
+            
+            if (isAppProject) {
+                slideshowContainer.classList.add('compact');
+                console.log('Applied compact view for mobile app project:', currentProjectId);
+            } else {
+                slideshowContainer.classList.remove('compact');
+                console.log('Using normal view for project:', currentProjectId);
+            }
+        }
+        
+        // Apply compact view
+        applyCompactView();
+        
+        // Populate the slideshow with images
+        function loadSlideshow(folderName) {
+            console.log('Loading slideshow for folder:', folderName);
+            activeFolderName = folderName;
+            const slideshowContainer = document.querySelector('.slideshow-container');
+            const dotsContainer = document.querySelector('.dots-container');
+            
+            // Clear previous slides and dots
+            slideshowContainer.querySelectorAll('.slide').forEach(slide => slide.remove());
+            dotsContainer.innerHTML = '';
+            
+            // Get images for the selected collection
+            const collection = currentCollections[folderName];
+            console.log('Collection data:', collection);
+            
+            if (!collection) {
+                console.error('Collection not found for:', folderName);
+                return;
+            }
+            
+            const images = collection.images;
+            console.log('Images to load:', images);
+            
+            // Create slides and dots for each image
+            images.forEach((image, index) => {
+                console.log('Creating slide for image:', `${collection.path}${image}`);
+                
+                // Create slide
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                if (index === 0) slide.classList.add('active');
+                
+                const img = document.createElement('img');
+                img.src = `${collection.path}${image}`;
+                img.alt = `${folderName} design ${index + 1}`;
+                
+                // Add error handling for images
+                img.onerror = function() {
+                    console.error('Failed to load image:', this.src);
+                };
+                
+                img.onload = function() {
+                    console.log('Successfully loaded image:', this.src);
+                };
+                
+                slide.appendChild(img);
+                slideshowContainer.insertBefore(slide, slideshowContainer.querySelector('.slide-counter'));
+                
+                // Create dot
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                if (index === 0) dot.classList.add('active');
+                dot.onclick = function() { showSlide(index); };
+                dotsContainer.appendChild(dot);
+            });
+            
+            // Update slide counter
+            const slideCounter = slideshowContainer.querySelector('.slide-counter');
+            slideCounter.textContent = `1 / ${images.length}`;
+            
+            // Reset current slide index
+            currentSlideIndex = 0;
+            
+            // Update slides array
+            slides = document.querySelectorAll('.slide');
+            
+            // Update active collection card
+            document.querySelectorAll('.collection-card').forEach(card => {
+                if (card.getAttribute('data-collection') === folderName) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        }
+        
+        // Create collection cards
+        function createCollectionCards() {
+            const collectionCardsContainer = document.querySelector('.collection-cards');
+            
+            // Clear previous cards
+            collectionCardsContainer.innerHTML = '';
+            
+            // Check if there's more than one collection
+            const collectionKeys = Object.keys(currentCollections);
+            
+            // Hide collection cards section if there's only one collection
+            if (collectionKeys.length <= 1) {
+                collectionCardsContainer.style.display = 'none';
+                return;
+            } else {
+                collectionCardsContainer.style.display = 'grid';
+            }
+            
+            // Create a card for each collection
+            collectionKeys.forEach(collectionName => {
+                const collection = currentCollections[collectionName];
+                const firstImage = collection.images[0];
+                
+                const card = document.createElement('div');
+                card.className = 'collection-card';
+                if (collectionName === activeFolderName) {
+                    card.classList.add('active');
+                }
+                card.setAttribute('data-collection', collectionName);
+                
+                const img = document.createElement('img');
+                img.src = `${collection.path}${firstImage}`;
+                img.alt = `${collectionName} preview`;
+                
+                const overlay = document.createElement('div');
+                overlay.className = 'overlay';
+                
+                // Format collection name for display based on project type
+                let displayName;
+                if (currentProjectId === 'content-creation') {
+                    switch(collectionName) {
+                        case 'muriafresh':
+                            displayName = 'Muriafresh';
+                            break;
+                        case 'madu-saheela':
+                            displayName = 'Madu Saheela';
+                            break;
+                        case 'kurma-ajwa':
+                            displayName = 'Kurma Ajwa Royal';
+                            break;
+                        case 'duren-kenji':
+                            displayName = 'DurenKenji';
+                            break;
+                        case 'website-banner':
+                            displayName = 'Website Banner';
+                            break;
+                        default:
+                            displayName = collectionName;
+                    }
+                } else if (currentProjectId === 'eatease-app') {
+                    displayName = 'App Designs';
+                } else if (currentProjectId === 'pos-app') {
+                    displayName = 'POS Screens';
+                } else if (currentProjectId === 'cheetask-app') {
+                    displayName = 'Task Management';
+                } else if (currentProjectId === 'summarecon-app') {
+                    displayName = 'App Screens';
+                } else if (currentProjectId === 'anakpipa-app') {
+                    displayName = 'Website Screens';
+                } else {
+                    displayName = collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
+                }
+                
+                overlay.textContent = displayName;
+                
+                card.appendChild(img);
+                card.appendChild(overlay);
+                
+                // Add click event to load slideshow
+                card.addEventListener('click', function() {
+                    // Remove active class from all cards
+                    document.querySelectorAll('.collection-card').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked card
+                    this.classList.add('active');
+                    
+                    // Load slideshow for the selected collection
+                    const collection = this.getAttribute('data-collection');
+                    loadSlideshow(collection);
+                });
+                
+                collectionCardsContainer.appendChild(card);
+            });
+        }
+        
+        // Navigate to specific slide
+        function showSlide(n) {
+            const collection = currentCollections[activeFolderName];
+            const totalSlides = collection.images.length;
+            
+            // Hide all slides and remove active class from dots
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+            
+            // Update current slide index
+            currentSlideIndex = (n + totalSlides) % totalSlides;
+            
+            // Show the current slide and activate corresponding dot
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            
+            if (slides.length > 0 && currentSlideIndex < slides.length) {
+                slides[currentSlideIndex].classList.add('active');
+            }
+            
+            if (dots.length > 0 && currentSlideIndex < dots.length) {
+                dots[currentSlideIndex].classList.add('active');
+            }
+            
+            // Update slide counter
+            const slideCounter = document.querySelector('.slide-counter');
+            slideCounter.textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
+        }
+        
+        // Next/previous controls
+        function changeSlide(n) {
+            showSlide(currentSlideIndex + n);
+        }
+        
+        // Create collection cards first
+        createCollectionCards();
+        
+        // Initialize slideshow with the correct collection for this project
+        loadSlideshow(activeFolderName);
+        
+        // Event listeners for next/prev buttons
+        document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
+        document.querySelector('.next').addEventListener('click', () => changeSlide(1));
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Create other projects navigation cards
+        function createOtherProjectsCards() {
+            const otherProjectsGrid = document.querySelector('.other-projects-grid');
+            
+            // Define project information
+            const allProjects = {
+                'content-creation': {
+                    title: 'Product Advertisement Series',
+                    description: 'Engaging video and image-based content for product promotion across various brands.',
+                    tags: ['Video Editing', 'Graphic Design', 'Social Media', 'Marketing'],
+                    thumbnail: '3dAssetThumbnail/sosmed.png'
+                },
+                'eatease-app': {
+                    title: 'EatEase',
+                    description: 'A food delivery mobile application with intuitive UI/UX design.',
+                    tags: ['Flutter', 'Dart', 'Firebase', 'UI/UX Design'],
+                    thumbnail: '3dAssetThumbnail/eatease.jpeg'
+                },
+                'pos-app': {
+                    title: 'POS Application',
+                    description: 'A responsive POS web application with modern design and smooth animations.',
+                    tags: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
+                    thumbnail: '3dAssetThumbnail/cangopi.jpeg'
+                },
+                'cheetask-app': {
+                    title: 'Cheetask',
+                    description: 'A task management application with clean and modern interface.',
+                    tags: ['Flutter', 'Dart', 'Firebase', 'Task Management'],
+                    thumbnail: '3dAssetThumbnail/todo.jpeg'
+                },
+                'summarecon-app': {
+                    title: 'Summarecon Apps',
+                    description: 'A responsive Daily needs application with modern design and smooth animations.',
+                    tags: ['Figma', 'UI/UX Design', 'Mobile App'],
+                    thumbnail: '3dAssetThumbnail/sms.jpeg'
+                },
+                'anakpipa-app': {
+                    title: 'AnakPipa Website',
+                    description: 'A modern e-commerce website for pipe and plumbing supplies with clean interface.',
+                    tags: ['Web Design', 'E-commerce', 'UI/UX Design', 'Product Catalog'],
+                    thumbnail: '3dAssetThumbnail/anakpipa.jpeg'
+                }
+            };
+            
+            // Clear existing cards
+            otherProjectsGrid.innerHTML = '';
+            
+            // Create cards for all projects except the current one
+            Object.keys(allProjects).forEach(projectKey => {
+                if (projectKey !== currentProjectId) {
+                    const project = allProjects[projectKey];
+                    
+                    const card = document.createElement('a');
+                    card.className = 'project-nav-card';
+                    card.href = `project-detail.html?id=${projectKey}&title=${encodeURIComponent(project.title)}&description=${encodeURIComponent(project.description)}`;
+                    
+                    const cardImage = document.createElement('div');
+                    cardImage.className = 'nav-card-image';
+                    
+                    const img = document.createElement('img');
+                    img.src = project.thumbnail;
+                    img.alt = project.title;
+                    img.onerror = function() {
+                        // Fallback image if thumbnail fails to load
+                        console.warn('Failed to load thumbnail for:', project.title);
+                        this.src = '3dAssetThumbnail/sosmed.png'; // Use a fallback image
+                    };
+                    
+                    cardImage.appendChild(img);
+                    
+                    const cardContent = document.createElement('div');
+                    cardContent.className = 'nav-card-content';
+                    
+                    const cardTitle = document.createElement('div');
+                    cardTitle.className = 'nav-card-title';
+                    cardTitle.textContent = project.title;
+                    
+                    const cardDescription = document.createElement('div');
+                    cardDescription.className = 'nav-card-description';
+                    cardDescription.textContent = project.description;
+                    
+                    const cardTags = document.createElement('div');
+                    cardTags.className = 'nav-card-tags';
+                    
+                    project.tags.forEach(tag => {
+                        const tagElement = document.createElement('span');
+                        tagElement.className = 'nav-card-tag';
+                        tagElement.textContent = tag;
+                        cardTags.appendChild(tagElement);
+                    });
+                    
+                    cardContent.appendChild(cardTitle);
+                    cardContent.appendChild(cardDescription);
+                    cardContent.appendChild(cardTags);
+                    
+                    card.appendChild(cardImage);
+                    card.appendChild(cardContent);
+                    
+                    otherProjectsGrid.appendChild(card);
+                }
+            });
+            
+            console.log('Created other projects cards, excluding current project:', currentProjectId);
+        }
+        
+        // Create other projects cards
+        createOtherProjectsCards();
+    </script>
+</body>
+</html> 

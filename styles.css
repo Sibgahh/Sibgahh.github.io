@@ -57,7 +57,7 @@ h3 {
 
 p {
     font-size: 1.125rem;
-    color: #333;
+    color: #757575;
 }
 
 /* Navbar */
@@ -416,9 +416,26 @@ p {
 }
 
 .project-tech span:hover {
-    background: var(--accent);
-    color: var(--text-primary);
-    border-color: var(--accent);
+    background-color: var(--accent);
+    color: #fff;
+}
+
+.view-project-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 8px 16px;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.view-project-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
 }
 
 .project-link {
@@ -447,19 +464,54 @@ p {
 }
 
 .experience-timeline {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    padding-left: 60px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 60px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--accent), rgba(139, 92, 246, 0.3));
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
 }
 
 .experience-item {
-    padding: 2rem;
-    border-left: 4px solid var(--accent);
+    padding: 2rem 2rem 2rem 2.5rem;
     margin-bottom: 3rem;
     background: var(--card-bg);
     border-radius: 16px;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--border-color);
+    margin-left: 20px;
+}
+
+.timeline-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 4px solid var(--bg-primary);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    z-index: 2;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.experience-content {
+    position: relative;
+    z-index: 1;
 }
 
 .experience-item::before {
@@ -480,12 +532,35 @@ p {
 
 .experience-item:hover {
     transform: translateX(8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.15);
+    border-color: var(--accent);
+}
+
+.experience-item:nth-child(1):hover ~ .timeline-line .timeline-dot:nth-child(1),
+.experience-item:nth-child(2):hover ~ .timeline-line .timeline-dot:nth-child(2),
+.experience-item:nth-child(3):hover ~ .timeline-line .timeline-dot:nth-child(3),
+.experience-item:nth-child(4):hover ~ .timeline-line .timeline-dot:nth-child(4),
+.timeline-dot:hover {
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+    box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.3);
+    transform: scale(1.2);
 }
 
 .company {
     color: var(--text-secondary);
     margin: 0.5rem 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.company::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
 }
 
 /* Contact Section */
@@ -804,15 +879,22 @@ p {
 
     /* Experience Section Mobile */
     .experience-timeline {
-        padding-left: 1rem;
+        padding-left: 40px;
+    }
+    
+    .timeline-line {
+        left: 16px;
+        width: 3px;
+    }
+    
+    .timeline-dot {
+        width: 12px;
+        height: 12px;
     }
 
     .experience-item {
         padding: 1.5rem;
-    }
-
-    .experience-item::before {
-        left: -1rem;
+        margin-left: 15px;
     }
 
     /* Contact Section Mobile */
@@ -858,6 +940,27 @@ p {
 
     .experience {
         padding: 3rem 0;
+    }
+    
+    /* Timeline adjustments for very small screens */
+    .experience-timeline {
+        padding-left: 30px;
+    }
+    
+    .timeline-line {
+        left: 12px;
+        width: 2px;
+    }
+    
+    .timeline-dot {
+        width: 10px;
+        height: 10px;
+        border: 3px solid var(--bg-primary);
+    }
+    
+    .experience-item {
+        margin-left: 10px;
+        padding: 1.25rem;
     }
 
     .contact {
