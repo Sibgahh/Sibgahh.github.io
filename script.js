@@ -184,21 +184,15 @@ contactForm.addEventListener('submit', async (e) => {
 
 // Navbar Scroll Effect
 const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
     if (currentScroll <= 0) {
         navbar.style.boxShadow = 'none';
-    } else if (currentScroll > lastScroll) {
-        navbar.style.transform = 'translateY(-100%)';
     } else {
-        navbar.style.transform = 'translateY(0)';
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     }
-    
-    lastScroll = currentScroll;
 });
 
 // Project Filtering
@@ -228,7 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Typing Animation
-const text = "Hi 👋, I'm an Indonesian Front-End Junior Developer.";
+const text = "Hi 👋, I'm an Indonesian Junior Front-End Developer.";
 const typingText = document.querySelector('.typing-text');
 let charIndex = 0;
 
