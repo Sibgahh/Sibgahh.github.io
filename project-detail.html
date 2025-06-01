@@ -678,6 +678,17 @@
                         '404.png'
                     ]
                 }
+            },
+            'UKM-finance': {
+                'screens': {
+                    path: 'UKM/',
+                    images: [
+                        '1 (1).png',
+                        '1 (2).png',
+                        '1 (3).png',
+                        '1 (4).png',
+                    ]
+                }
             }
         };
         
@@ -736,6 +747,12 @@
                     break;
                 case 'summarecon-app':
                     tags = ['Figma', 'UI/UX Design', 'Mobile App'];
+                    break;
+                case 'anakpipa-app':
+                    tags = ['Web Design', 'E-commerce', 'UI/UX Design', 'Product Catalog'];
+                    break;
+                case 'UKM-finance':
+                    tags = ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'UI/UX Design', 'Web Design'];
                     break;
                 default:
                     tags = ['Design', 'Development'];
@@ -914,6 +931,8 @@
                     displayName = 'App Screens';
                 } else if (currentProjectId === 'anakpipa-app') {
                     displayName = 'Website Screens';
+                } else if (currentProjectId === 'UKM-finance') {
+                    displayName = 'Website Screens';
                 } else {
                     displayName = collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
                 }
@@ -1036,6 +1055,12 @@
                     description: 'A modern e-commerce website for pipe and plumbing supplies with clean interface.',
                     tags: ['Web Design', 'E-commerce', 'UI/UX Design', 'Product Catalog'],
                     thumbnail: '3dAssetThumbnail/anakpipa.jpeg'
+                },
+                'UKM-finance': {
+                    title: 'UKM Finance',
+                    description: 'A responsive finance application with modern design and smooth animations.',
+                    tags: ['Figma', 'UI/UX Design', 'Web Design'],
+                    thumbnail: '3dAssetThumbnail/ukm.jpeg'
                 }
             };
             
