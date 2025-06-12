@@ -5,17 +5,114 @@ AOS.init({
     offset: 100
 });
 
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('theme-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Get saved theme or default to system preference
+function getTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        return savedTheme;
+    }
+    return prefersDarkScheme.matches ? 'dark' : 'light';
+}
+
+// Apply theme
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+}
+
+// Initialize theme
+document.addEventListener('DOMContentLoaded', () => {
+    const currentTheme = getTheme();
+    applyTheme(currentTheme);
+});
+
+// Theme toggle event listener
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+    });
+}
+
+// Auto-show theme hint on homepage only
+function initThemeHint() {
+    const themeHint = document.querySelector('.theme-hint');
+    
+    // Only show on homepage (index.html or root path)
+    const isHomepage = window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('index.html') || 
+                      window.location.pathname === '/index.html' ||
+                      window.location.pathname === '';
+    
+    if (themeHint && isHomepage) {
+        // Check if user is in light mode (hint only makes sense in light mode)
+        const currentTheme = document.documentElement.getAttribute('data-theme') || getTheme();
+        
+        if (currentTheme !== 'dark') {
+            // Show hint automatically after page load
+            setTimeout(() => {
+                // Double-check theme hasn't changed
+                const latestTheme = document.documentElement.getAttribute('data-theme') || getTheme();
+                if (latestTheme !== 'dark') {
+                    themeHint.classList.add('auto-show');
+                    
+                    // Hide hint after 10 seconds
+                    setTimeout(() => {
+                        themeHint.classList.remove('auto-show');
+                    }, 10000);
+                }
+            }, 1000); // Show after 1 second delay to ensure page is loaded
+        }
+        
+        // Also remove auto-show if user manually changes to dark theme
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    if (currentTheme === 'dark' && themeHint.classList.contains('auto-show')) {
+                        themeHint.classList.remove('auto-show');
+                    }
+                }
+            });
+        });
+        
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
+    }
+}
+
+// Initialize theme hint when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    initThemeHint();
+});
+
+// Listen for system theme changes
+prefersDarkScheme.addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+    }
+});
+
 // Mobile Menu Toggle
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
 let isMenuOpen = false;
 
-mobileMenuBtn.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen;
-    mobileMenuBtn.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
-});
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        mobileMenuBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    });
+}
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
@@ -221,18 +318,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Typing Animation
-const text = "Hi 👋, I'm an Indonesian Junior Front-End Developer.";
+// Typing Animation with cycling roles
+const baseText = "Hi 👋, I'm an Indonesian ";
+const roles = [
+    "Junior Front-End Developer.",
+    "UI/UX Enthusiast.",
+    "Junior Mobile Developer."
+];
 const typingText = document.querySelector('.typing-text');
+let roleIndex = 0;
 let charIndex = 0;
+let isDeleting = false;
+let typingSpeed = 100;
+let deletingSpeed = 50;
+let pauseTime = 2000; // Pause between complete text cycles
 
-function type() {
-    if (charIndex < text.length) {
-        typingText.textContent += text.charAt(charIndex);
-        charIndex++;
-        setTimeout(type, 100);
+function typeWriter() {
+    const currentRole = roles[roleIndex];
+    const baseLength = baseText.length;
+    
+    if (!isDeleting) {
+        // Typing the role part
+        if (charIndex < currentRole.length) {
+            typingText.textContent = baseText + currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            setTimeout(typeWriter, typingSpeed);
+        } else {
+            // Finished typing, pause then start deleting
+            setTimeout(() => {
+                isDeleting = true;
+                typeWriter();
+            }, pauseTime);
+        }
+    } else {
+        // Deleting only the role part
+        if (charIndex > 0) {
+            typingText.textContent = baseText + currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(typeWriter, deletingSpeed);
+        } else {
+            // Finished deleting, move to next role
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            setTimeout(typeWriter, 500); // Short pause before starting next role
+        }
     }
 }
 
 // Start typing animation when page loads
-window.addEventListener('load', type); 
+window.addEventListener('load', () => {
+    // Set the base text immediately
+    typingText.textContent = baseText;
+    // Start typing the first role
+    setTimeout(typeWriter, 500);
+}); 
