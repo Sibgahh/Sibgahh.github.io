@@ -97,10 +97,13 @@ function BrandBoardPage({
         </header>
         <div className="brand-board-palette">
           {brand.palette.map((color) => (
-            <div key={color.hex} className="brand-board-swatch">
+            <div
+              key={`${color.name}-${color.hex}`}
+              className="brand-board-swatch"
+            >
               <span
                 className="brand-board-swatch-chip"
-                style={{ background: color.hex }}
+                style={{ background: color.swatch ?? color.hex }}
                 aria-hidden
               />
               <span className="brand-board-swatch-name">{color.name}</span>

@@ -1,7 +1,6 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import DarkVeil from "./DarkVeil";
 import VideoMockup from "./VideoMockup";
 import CategoryProjects from "./CategoryProjects";
 import PathTrail from "./PathTrail";
@@ -585,16 +584,6 @@ export default function ProjectDetail() {
 
   return (
     <section className="project-detail-section">
-      <div className="page-veil" aria-hidden="true">
-        <DarkVeil
-          hueShift={241}
-          scanlineIntensity={0.25}
-          speed={1.1}
-          scanlineFrequency={2.6}
-          warpAmount={2.4}
-        />
-      </div>
-
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}

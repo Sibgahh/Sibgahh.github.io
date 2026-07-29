@@ -1,7 +1,16 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Home, Briefcase, LayoutGrid, History, Mail } from "lucide-react";
+import {
+  Home,
+  Briefcase,
+  LayoutGrid,
+  History,
+  Mail,
+  Sun,
+  Moon,
+} from "lucide-react";
+import { useTheme } from "@/theme";
 
 const navLinks = [
   { label: "Home", path: "/", hash: "home" },
@@ -40,6 +49,7 @@ function scrollToId(id: string, behavior: ScrollBehavior = "smooth") {
 export default function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
   const shellRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [activeHash, setActiveHash] = useState("");
@@ -204,9 +214,32 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={
+                theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+              }
+              title={theme === "dark" ? "Light mode" : "Dark mode"}
+            >
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
           </nav>
         </div>
       </motion.header>
+
+      <button
+        type="button"
+        className="theme-toggle theme-toggle--mobile"
+        onClick={toggleTheme}
+        aria-label={
+          theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+        }
+        title={theme === "dark" ? "Light mode" : "Dark mode"}
+      >
+        {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      </button>
 
       <motion.nav
         className="mobile-tabbar"
