@@ -363,8 +363,8 @@ p {
 }
 
 .nav-link.is-active {
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  background: #e63946;
 }
 
 @media (min-width: 900px) {
@@ -624,27 +624,54 @@ p {
   margin-top: 0.75rem;
   padding: 0.75rem 1.25rem;
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: 1px solid #e63946;
   background: transparent;
-  color: var(--ink);
+  color: #e63946;
   font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    color 0.2s ease;
+    color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.hero-cv-btn:hover {
-  border-color: rgba(230, 57, 70, 0.75);
-  color: #ff6b7a;
-  box-shadow:
-    0 0 0 1px rgba(230, 57, 70, 0.75),
-    0 0 18px rgba(230, 57, 70, 0.35);
+.hero-cv-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #e63946;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+
+.hero-cv-btn:hover::before,
+.hero-cv-btn:active::before,
+.hero-cv-btn:focus-visible::before {
+  transform: translateX(0);
+}
+
+.hero-cv-btn:hover,
+.hero-cv-btn:active,
+.hero-cv-btn:focus-visible {
+  color: #fff;
+  background: #e63946;
+  border-color: #e63946;
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.hero-cv-btn-icon,
+.hero-cv-btn > span {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-cv-btn-icon {

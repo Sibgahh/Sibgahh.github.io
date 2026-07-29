@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Home, Briefcase, LayoutGrid, History, Mail } from "lucide-react";
@@ -28,12 +28,13 @@ interface NavLink {
   hash: string | null;
 }
 
-function scrollToId(id: string) {
+const NAV_OFFSET = 88;
+
+function scrollToId(id: string, behavior: ScrollBehavior = "smooth") {
   const el = document.getElementById(id);
   if (!el) return;
-  const offset = 88;
-  const top = el.getBoundingClientRect().top + window.scrollY - offset;
-  window.scrollTo({ top, behavior: "smooth" });
+  const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+  window.scrollTo({ top, behavior });
 }
 
 export default function Navbar() {
@@ -45,6 +46,9 @@ export default function Navbar() {
   const [glowing, setGlowing] = useState(false);
   const pinnedHashRef = useRef<string | null>(null);
   const releasePinRef = useRef<() => void>(() => {});
+  // Track previous pathname so hash jumps from /portfolio (etc.) land
+  // instantly on the section instead of animating down from Home.
+  const prevPathRef = useRef(location.pathname);
 
   // Pin the active tab to a target section immediately (optimistic), ignoring
   // scroll-based detection until the resulting smooth-scroll settles. Without
@@ -77,14 +81,27 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scroll to hash after route change (e.g. from /portfolio → /#services)
-  useEffect(() => {
+  // Scroll to hash after route change (e.g. from /portfolio → /#experience).
+  // useLayoutEffect + instant scroll when coming from another page so the
+  // hero entrance never plays while we "start from home".
+  useLayoutEffect(() => {
+    const cameFromOtherPage = prevPathRef.current !== "/";
+    prevPathRef.current = location.pathname;
+
     if (location.pathname !== "/") return;
     const hash = location.hash.replace("#", "");
     if (!hash) return;
+
     pinActive(hash);
-    const timer = window.setTimeout(() => scrollToId(hash), 80);
-    return () => window.clearTimeout(timer);
+
+    const behavior: ScrollBehavior = cameFromOtherPage ? "auto" : "smooth";
+    scrollToId(hash, behavior);
+
+    // Retry once after paint in case section layout settles late.
+    const raf = window.requestAnimationFrame(() => {
+      scrollToId(hash, behavior);
+    });
+    return () => window.cancelAnimationFrame(raf);
   }, [location.pathname, location.hash]);
 
   // Highlight current section while scrolling on home
@@ -142,7 +159,8 @@ export default function Navbar() {
       return;
     }
 
-    pinActive(link.hash ?? "home");
+    const hash = link.hash ?? "home";
+    pinActive(hash);
 
     if (!link.hash) {
       navigate("/");
@@ -151,10 +169,11 @@ export default function Navbar() {
 
     if (location.pathname === "/") {
       navigate(`/#${link.hash}`, { replace: true });
-      scrollToId(link.hash);
+      scrollToId(link.hash, "smooth");
       return;
     }
 
+    // Cross-route: navigate with hash; useLayoutEffect jumps instantly.
     navigate(`/#${link.hash}`);
   }
 

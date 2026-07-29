@@ -131,7 +131,7 @@ export default function Hero() {
             onClick={() => setCvOpen(true)}
           >
             <FileText className="hero-cv-btn-icon" aria-hidden />
-            View CV
+            <span>View CV</span>
           </button>
         </motion.div>
 
