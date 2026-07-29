@@ -156,4 +156,4 @@ function RollingTextList({
   );
 }
 
-export { RollingTextList, RollingTextItem };
+export { RollingTextList };

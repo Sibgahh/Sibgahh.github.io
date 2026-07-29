@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { type ComponentType, type ReactNode } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import CardSwap, { Card } from './CardSwap'
 import eateaseThumbnail from '@/3dAssetThumbnail/eatease.jpeg'
@@ -36,6 +37,28 @@ const featured: FeaturedProject[] = [
     image: cangopiThumbnail,
   },
 ]
+
+type CardSwapProps = {
+  width?: number
+  height?: number
+  cardDistance?: number
+  verticalDistance?: number
+  delay?: number
+  pauseOnHover?: boolean
+  onCardClick?: (idx: number) => void
+  skewAmount?: number
+  easing?: string
+  className?: string
+  children?: ReactNode
+}
+
+type CardProps = {
+  children?: ReactNode
+  customClass?: string
+}
+
+const TypedCardSwap = CardSwap as ComponentType<CardSwapProps>
+const TypedCard = Card as ComponentType<CardProps>
 
 export default function Projects() {
   const navigate = useNavigate()
@@ -84,7 +107,7 @@ export default function Projects() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="projects-swap-stage"
         >
-          <CardSwap
+          <TypedCardSwap
             width={600}
             height={430}
             cardDistance={70}
@@ -94,10 +117,10 @@ export default function Projects() {
             skewAmount={6}
             easing="elastic"
             className="projects-card-swap"
-            onCardClick={(idx) => navigate(`/project/${featured[idx].id}`)}
+            onCardClick={(idx: number) => navigate(`/project/${featured[idx].id}`)}
           >
             {featured.map((project) => (
-              <Card key={project.id} customClass="project-swap-card">
+              <TypedCard key={project.id} customClass="project-swap-card">
                 <div className="project-swap-chrome">
                   <div className="project-swap-dots" aria-hidden="true">
                     <span />
@@ -116,9 +139,9 @@ export default function Projects() {
                   alt={project.title}
                   className="project-swap-card-image"
                 />
-              </Card>
+              </TypedCard>
             ))}
-          </CardSwap>
+          </TypedCardSwap>
         </motion.div>
       </div>
     </section>

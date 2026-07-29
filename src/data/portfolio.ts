@@ -137,16 +137,8 @@ export function itemsByCategoryKey(key: CategoryKey): PortfolioItem[] {
   return portfolioItems.filter((item) => item.category === meta.label)
 }
 
-export function itemsByCategory(label: PortfolioCategory): PortfolioItem[] {
-  return portfolioItems.filter((item) => item.category === label)
-}
-
 export function countByCategoryKey(key: CategoryKey): number {
   return itemsByCategoryKey(key).length
-}
-
-export function countByCategory(label: PortfolioCategory): number {
-  return itemsByCategory(label).length
 }
 
 export function getPortfolioItem(id: string): PortfolioItem | undefined {

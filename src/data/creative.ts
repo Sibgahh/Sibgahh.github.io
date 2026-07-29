@@ -21,7 +21,7 @@ export type CreativeBrandId =
   | "kurma-ajwa-royal"
   | "muriafresh";
 
-export interface BrandColor {
+interface BrandColor {
   name: string;
   /** Solid hex, or stop labels like `#23AEC3 → #005F99` */
   hex: string;
@@ -29,7 +29,7 @@ export interface BrandColor {
   swatch?: string;
 }
 
-export interface BrandFont {
+interface BrandFont {
   role: "Display" | "Body";
   family: string;
   /** CSS font-family value used for the live sample */
@@ -406,7 +406,7 @@ function brandFromPath(path: string): CreativeBrand | undefined {
   return folderToBrand[match[1]];
 }
 
-export const creativePosts: CreativePost[] = Array.from(
+const creativePosts: CreativePost[] = Array.from(
   preferredByStem.values(),
 )
   .map(({ path, src }, index) => {

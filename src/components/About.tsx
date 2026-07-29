@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState, type SVGProps } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ComponentType,
+  type SVGProps,
+} from "react";
 import { motion, useInView } from "framer-motion";
 import { useGLTF } from "@react-three/drei";
 import { Mail, Phone, ExternalLink, Award, X } from "lucide-react";
@@ -18,12 +24,25 @@ import logoHash from "@/logo/Company_Logo/680f3bfb25c9fae7ad98b43a61f90593.png";
 import logoUmn from "@/logo/Company_Logo/Logo-UMN-e1634700898276 (1).png";
 import logoSiloam from "@/logo/Company_Logo/Siloam_Hospitals.svg";
 import certAssembly from "@/sertifikat/previews/Sibgah Rabbani Kusuma.jpg";
-import certAppreciation from "@/sertifikat/Sertifikat_OFFLINE_DANAID8-16.png";
+import certAppreciation from "@/sertifikat/previews/Sertifikat_OFFLINE_DANAID8-16.png";
 import certEthicalHacking from "@/sertifikat/previews/Coursera 6RC8BTBXNNLA.jpg";
 import certNetworkDefense from "@/sertifikat/previews/Coursera QQV8W9X2VHTT.jpg";
 import certDigitalForensics from "@/sertifikat/previews/DFE.jpg";
 
 useGLTF.preload(cardGLB);
+
+type LanyardProps = {
+  position?: [number, number, number];
+  gravity?: [number, number, number];
+  fov?: number;
+  transparent?: boolean;
+  frontImage?: string | null;
+  backImage?: string | null;
+  imageFit?: "cover" | "contain";
+  lanyardWidth?: number;
+};
+
+const TypedLanyard = Lanyard as ComponentType<LanyardProps>;
 
 const companyLogos = [
   { src: logoTelkom, alt: "Telkomsigma" },
@@ -144,7 +163,7 @@ export default function About() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <Lanyard
+                  <TypedLanyard
                     position={[0, 0, 12]}
                     gravity={[0, -40, 0]}
                     fov={20}

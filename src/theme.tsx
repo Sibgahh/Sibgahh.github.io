@@ -27,16 +27,6 @@ function applyTheme(theme: Theme) {
   root.dataset.theme = theme;
 }
 
-export function getStoredTheme(): Theme {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === "light" || stored === "dark") return stored;
-  } catch {
-    /* ignore */
-  }
-  return "dark";
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof document === "undefined") return "dark";

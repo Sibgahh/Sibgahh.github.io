@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { type ComponentType, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Folder from "./Folder";
 import eateaseThumbnail from "@/3dAssetThumbnail/eatease.jpeg";
@@ -47,6 +48,15 @@ const services: Service[] = [
 
 const folderColors = ["#e63946", "#4ecdc4", "#ff6b7a"];
 
+type FolderProps = {
+  color?: string;
+  size?: number;
+  items?: ReactNode[];
+  className?: string;
+};
+
+const TypedFolder = Folder as ComponentType<FolderProps>;
+
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   const folderItems = service.images
     .slice(0, 3)
@@ -67,7 +77,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       </span>
 
       <div className="service-folder-slot">
-        <Folder
+        <TypedFolder
           size={2.1}
           color={folderColors[index % folderColors.length]}
           items={folderItems}

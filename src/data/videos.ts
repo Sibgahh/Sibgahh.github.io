@@ -5,7 +5,7 @@ import thumbSiloam from '@/3dAssetThumbnail/Siloam.png'
 
 export type VideoBrand = 'umn' | 'siloam'
 
-export interface BrandVideo {
+interface BrandVideo {
   id: string
   title: string
   driveFileId: string
