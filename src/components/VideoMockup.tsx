@@ -146,21 +146,21 @@ export default function VideoMockup({ project }: VideoMockupProps) {
                     />
                   </motion.div>
                 </AnimatePresence>
+              </div>
 
-                <div className="reels-overlay">
-                  <div className="reels-brand">
-                    <span className="reels-avatar" aria-hidden="true">
-                      <img src={project.logo} alt="" />
+              <div className="reels-overlay">
+                <div className="reels-brand">
+                  <span className="reels-avatar" aria-hidden="true">
+                    <img src={project.logo} alt="" />
+                  </span>
+                  <div className="reels-brand-text">
+                    <strong>{project.title}</strong>
+                    <span>
+                      Reel {activeIndex + 1} of {videos.length}
                     </span>
-                    <div className="reels-brand-text">
-                      <strong>{project.title}</strong>
-                      <span>
-                        Reel {activeIndex + 1} of {videos.length}
-                      </span>
-                    </div>
                   </div>
-                  <p className="reels-caption">{active.title}</p>
                 </div>
+                <p className="reels-caption">{active.title}</p>
               </div>
             </motion.div>
 

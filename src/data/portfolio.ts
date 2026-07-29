@@ -116,8 +116,8 @@ export const portfolioItems: PortfolioItem[] = [
     subtitle: brandVideoProjects.umn.subtitle,
     category: 'Video Editing',
     tags: ['Premiere Pro', 'After Effects', 'UMN'],
-    thumbnail: brandVideoProjects.umn.logo,
-    thumbnailFit: 'contain',
+    thumbnail: brandVideoProjects.umn.thumbnail,
+    thumbnailFit: 'cover',
   },
   {
     id: 'siloam',
@@ -125,8 +125,8 @@ export const portfolioItems: PortfolioItem[] = [
     subtitle: brandVideoProjects.siloam.subtitle,
     category: 'Video Editing',
     tags: ['Premiere Pro', 'After Effects', 'Siloam'],
-    thumbnail: brandVideoProjects.siloam.logo,
-    thumbnailFit: 'contain',
+    thumbnail: brandVideoProjects.siloam.thumbnail,
+    thumbnailFit: 'cover',
   },
 ]
 

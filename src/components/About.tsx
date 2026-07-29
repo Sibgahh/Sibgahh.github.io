@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { useGLTF } from "@react-three/drei";
 import { Mail, Phone, ExternalLink, Award, X } from "lucide-react";
 import Lanyard from "./Lanyard/Lanyard";
-import frontImg from "@/image/1767262655546.png";
+import frontImg from "@/image/Group 273.png";
 import backImg from "@/logo/Sibgah Rabbani Kusuma (2).png";
 import cardGLB from "./Lanyard/card.glb";
 

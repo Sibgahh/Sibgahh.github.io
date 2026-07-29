@@ -1,5 +1,7 @@
 import logoUmn from '@/logo/Company_Logo/Logo-UMN-e1634700898276 (1).png'
 import logoSiloam from '@/logo/Company_Logo/Siloam_Hospitals.svg'
+import thumbUmn from '@/3dAssetThumbnail/VideoUOL.png'
+import thumbSiloam from '@/3dAssetThumbnail/Siloam.png'
 
 export type VideoBrand = 'umn' | 'siloam'
 
@@ -20,6 +22,8 @@ export interface BrandVideoProject {
   description: string
   highlights: string[]
   logo: string
+  /** Portfolio card cover */
+  thumbnail: string
   videos: BrandVideo[]
 }
 
@@ -48,6 +52,7 @@ export const brandVideoProjects: Record<VideoBrand, BrandVideoProject> = {
       'Edited for platform-ready exports with clear narrative beats.',
     ],
     logo: logoUmn,
+    thumbnail: thumbUmn,
     videos: [
       {
         id: 'umn-qris',
@@ -92,6 +97,7 @@ export const brandVideoProjects: Record<VideoBrand, BrandVideoProject> = {
       'Delivered platform-ready exports aligned with Siloam brand presence.',
     ],
     logo: logoSiloam,
+    thumbnail: thumbSiloam,
     videos: [
       {
         id: 'siloam-dr-medok',

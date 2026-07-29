@@ -67,7 +67,7 @@ export default function Contact() {
           </p>
           <a href="mailto:sibgahrk190@gmail.com" className="contact-freelance-badge">
             <span className="badge-arrow">→</span>
-            AVAILABLE FOR FREELANCE
+            <span>AVAILABLE FOR FREELANCE</span>
           </a>
         </motion.div>
 

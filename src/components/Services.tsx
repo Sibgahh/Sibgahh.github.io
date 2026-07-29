@@ -4,6 +4,8 @@ import Folder from "./Folder";
 import eateaseThumbnail from "@/3dAssetThumbnail/eatease.jpeg";
 import cangopiThumbnail from "@/3dAssetThumbnail/cangopi.jpeg";
 import smsThumbnail from "@/3dAssetThumbnail/sms.jpeg";
+import umnGraduateThumb from "@/3dAssetThumbnail/umngraduatevideo.png";
+import videoUolThumb from "@/3dAssetThumbnail/VideoUOL.png";
 import type { CategoryKey } from "@/data/portfolio";
 import { brandVideoProjects } from "@/data/videos";
 import { coverForBrand } from "@/data/creative";
@@ -16,9 +18,9 @@ interface Service {
 }
 
 const creativeCovers = [
-  coverForBrand("duren-kenji"),
-  coverForBrand("kurma-ajwa-royal"),
-  coverForBrand("madu-saheela"),
+  coverForBrand("umn-online-learning"),
+  coverForBrand("umn-graduate"),
+  coverForBrand("ajwa-naeem"),
 ].filter(Boolean) as string[];
 
 const services: Service[] = [
@@ -35,9 +37,9 @@ const services: Service[] = [
   {
     title: "Video Editing",
     images: [
-      brandVideoProjects.umn.logo,
-      brandVideoProjects.siloam.logo,
-      brandVideoProjects.umn.logo,
+      umnGraduateThumb,
+      videoUolThumb,
+      brandVideoProjects.siloam.thumbnail,
     ],
     category: "video",
   },
