@@ -12,7 +12,6 @@ import ProjectDetail from "./components/ProjectDetail";
 import Portfolio from "./components/Portfolio";
 import CreativeGallery from "./components/CreativeGallery";
 import Footer from "./components/Footer";
-import CustomCursor from "./components/CustomCursor";
 
 function HomePage() {
   return (
@@ -35,7 +34,6 @@ export default function App() {
 
   return (
     <div>
-      <CustomCursor />
       <Navbar />
       <main>
         <Routes>

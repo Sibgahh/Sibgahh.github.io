@@ -248,41 +248,6 @@ main {
   background-size: 200px;
 }
 
-/* ============== CUSTOM CURSOR ============== */
-/* JS only mounts this on devices with a precise, hover-capable pointer
-   (see CustomCursor.tsx), and only then adds .has-custom-cursor to <html>.
-   Hiding the native cursor is scoped to that class (rather than a bare
-   pointer/hover media query) so it never accidentally disables the system
-   cursor if the component itself isn't mounted for any reason. */
-html.has-custom-cursor,
-html.has-custom-cursor * {
-  cursor: none !important;
-}
-
-.custom-cursor-dot,
-.custom-cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 100000;
-  will-change: transform;
-}
-
-.custom-cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: #ff3344;
-  box-shadow: 0 0 8px rgba(230, 57, 70, 0.6);
-}
-
-.custom-cursor-ring {
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(230, 57, 70, 0.55);
-}
-
 /* ============== TYPOGRAPHY ============== */
 h1,
 h2,
