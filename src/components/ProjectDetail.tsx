@@ -88,7 +88,64 @@ const CASE_STUDY_SECTIONS = [
   { id: "outcomes", label: "Outcomes", field: "outcomes" as const },
 ] as const;
 
+import telkomsigmaImg1 from "@/telkomsigma/ChatGPT Image Aug 27, 2026, 11_16_50 AM.png";
+import telkomsigmaImg2 from "@/telkomsigma/ChatGPT Image Aug 27, 2026, 11_23_20 AM.png";
+
 const projectsData: Record<string, ProjectData> = {
+  "telkomsigma": {
+    id: "telkomsigma",
+    title: "Employee Self System",
+    subtitle: "Enterprise Application",
+    period: "2024",
+    role: "Mobile Developer & Frontend",
+    type: "Mobile Application",
+    stack: ["Mobile Development", "UI/UX", "Enterprise Architecture"],
+    description: "An integrated Employee Self System application allowing staff to manage their data, timesheets, and track productivity within a unified enterprise ecosystem.",
+    highlights: [
+      "Developed a cohesive mobile application interface for internal employee management.",
+      "Implemented features for timesheet tracking, leave requests, and performance monitoring.",
+      "Ensured secure and intuitive access to personal and professional data."
+    ],
+    thumbnail: telkomsigmaImg2,
+    images: [telkomsigmaImg1, telkomsigmaImg2],
+    caseStudy: {
+      overview: [
+        "The Employee Self System by Telkomsigma is a mobile-first enterprise application aimed at unifying employee management tasks.",
+        "As a developer, the goal was to create an intuitive and accessible platform for employees to handle their daily administrative needs such as timesheets, leave (cuti), and performance tracking."
+      ],
+      challenge: "Enterprise applications often suffer from fragmented experiences. The main challenge was to consolidate various employee functions—timesheets, data management, and performance ratings—into a single, easy-to-use mobile interface.",
+      problem: [
+        "Employees had to navigate multiple systems for different HR functions.",
+        "Tracking daily tasks and timesheets was tedious and error-prone.",
+        "Lack of a centralized dashboard for personal productivity and achievements."
+      ],
+      solution: [
+        "A unified mobile dashboard presenting key actions like clock-in and timesheet submissions upfront.",
+        "A streamlined Profile Data section for easy updates of basic information and emergency contacts.",
+        "A visually clear Achievement section tracking utilization and productivity."
+      ],
+      journey: [
+        "Started with mapping the core employee journeys: daily check-ins, profile updates, and performance reviews.",
+        "Designed and implemented the UI focused on clarity and ease of access.",
+        "Integrated the front-end with enterprise backend systems to ensure real-time data sync."
+      ],
+      outcomes: [
+        "Delivered a centralized mobile app that simplifies daily HR tasks.",
+        "Improved employee engagement with the timesheet and performance systems.",
+        "Reduced administrative overhead by providing self-service capabilities."
+      ],
+      responsibilities: [
+        "Implementing the mobile user interface based on design specifications.",
+        "Ensuring smooth navigation and state management across different app modules.",
+        "Integrating with backend APIs for real-time data fetching and updates."
+      ],
+      impact: [
+        "Streamlined internal processes for employee data management.",
+        "Provided a clear, accessible overview of employee performance and utilization.",
+        "Enhanced the overall digital workplace experience for the staff."
+      ]
+    }
+  },
   "pradita-canteen": {
     id: "pradita-canteen",
     title: "Pradita Canteen",

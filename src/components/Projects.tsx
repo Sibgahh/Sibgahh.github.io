@@ -1,148 +1,113 @@
 import { motion } from 'framer-motion'
-import { type ComponentType, type ReactNode } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import CardSwap, { Card } from './CardSwap'
-import eateaseThumbnail from '@/3dAssetThumbnail/eatease.jpeg'
-import smsThumbnail from '@/3dAssetThumbnail/sms.jpeg'
+import { Link } from 'react-router-dom'
+import telkomsigmaThumbnail from '@/telkomsigma/ChatGPT Image Aug 27, 2026, 11_16_50 AM.png'
 import cangopiThumbnail from '@/3dAssetThumbnail/cangopi.jpeg'
+import eateaseThumbnail from '@/3dAssetThumbnail/eatease.jpeg'
 
 interface FeaturedProject {
   id: string
   title: string
-  listLabel: string
-  tags: string[]
+  categories: string[]
   image: string
 }
 
 const featured: FeaturedProject[] = [
   {
-    id: 'pradita-canteen',
-    title: 'Pradita Canteen',
-    listLabel: 'Pradita Canteen – Food Order App',
-    tags: ['APP', 'FULLSTACK'],
-    image: eateaseThumbnail,
-  },
-  {
-    id: 'summarecon',
-    title: 'Summarecon Serpong',
-    listLabel: 'Summarecon Serpong – Document System',
-    tags: ['UI', 'UX'],
-    image: smsThumbnail,
+    id: 'telkomsigma',
+    title: 'Employee\nSelf System',
+    categories: ['MOBILE APP', 'ENTERPRISE'],
+    image: telkomsigmaThumbnail,
   },
   {
     id: 'cangopi-pos',
-    title: 'Cangopi POS',
-    listLabel: 'Cangopi POS – Point of Sale',
-    tags: ['WEB', 'APP'],
+    title: 'Cangopi\nPOS System',
+    categories: ['WEBSITE', 'FULLSTACK'],
     image: cangopiThumbnail,
+  },
+  {
+    id: 'pradita-canteen',
+    title: 'Pradita\nCanteen',
+    categories: ['MOBILE APP', 'IOT'],
+    image: eateaseThumbnail,
   },
 ]
 
-type CardSwapProps = {
-  width?: number
-  height?: number
-  cardDistance?: number
-  verticalDistance?: number
-  delay?: number
-  pauseOnHover?: boolean
-  onCardClick?: (idx: number) => void
-  skewAmount?: number
-  easing?: string
-  className?: string
-  children?: ReactNode
+function ArrowIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="7" y1="17" x2="17" y2="7" />
+      <polyline points="7 7 17 7 17 17" />
+    </svg>
+  )
 }
-
-type CardProps = {
-  children?: ReactNode
-  customClass?: string
-}
-
-const TypedCardSwap = CardSwap as ComponentType<CardSwapProps>
-const TypedCard = Card as ComponentType<CardProps>
 
 export default function Projects() {
-  const navigate = useNavigate()
-
   return (
     <section id="projects" className="projects-section">
-      <div className="projects-swap-layout">
-        <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="projects-swap-copy"
-        >
-          <h2 className="projects-swap-heading">
-            Selected recent projects I&apos;ve designed and built
-          </h2>
-          <p className="projects-swap-lede">
-            A selection of recent work showcasing product design and front-end
-            engineering.
-          </p>
+      {/* Header */}
+      <motion.div
+        className="sp-header"
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5 }}
+      >
+        <h2 className="sp-heading">Featured Work</h2>
+        <Link to="/portfolio" className="sp-view-all">
+          Explore All Projects <span aria-hidden="true">→</span>
+        </Link>
+      </motion.div>
 
-          <ul className="projects-swap-list">
-            {featured.map((project, idx) => (
-              <motion.li
-                key={project.id}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.45, delay: idx * 0.08 + 0.15 }}
-              >
-                <Link to={`/project/${project.id}`}>{project.listLabel}</Link>
-              </motion.li>
-            ))}
-          </ul>
-
-          <Link to="/portfolio" className="projects-swap-all">
-            View all projects <span aria-hidden="true">→</span>
-          </Link>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="projects-swap-stage"
-        >
-          <TypedCardSwap
-            width={600}
-            height={430}
-            cardDistance={70}
-            verticalDistance={75}
-            delay={4500}
-            pauseOnHover
-            skewAmount={6}
-            easing="elastic"
-            className="projects-card-swap"
-            onCardClick={(idx: number) => navigate(`/project/${featured[idx].id}`)}
+      {/* Grid */}
+      <div className="sp-grid">
+        {featured.map((project, idx) => (
+          <motion.div
+            key={project.id}
+            className="sp-card"
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, delay: idx * 0.12 }}
           >
-            {featured.map((project) => (
-              <TypedCard key={project.id} customClass="project-swap-card">
-                <div className="project-swap-chrome">
-                  <div className="project-swap-dots" aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
+            <Link to={`/project/${project.id}`} className="sp-card-link">
+              <div className="sp-card-visual">
+                {/* Image */}
+                <div className="sp-card-img-wrap">
+                  <img src={project.image} alt={project.title.replace('\n', ' ')} />
+                </div>
+
+                {/* Overlay: title + categories + arrow */}
+                <div className="sp-card-overlay">
+                  <div className="sp-card-overlay-text">
+                    <h3 className="sp-card-title">
+                      {project.title.split('\n').map((line, i) => (
+                        <span key={i}>
+                          {line}
+                          {i < project.title.split('\n').length - 1 && <br />}
+                        </span>
+                      ))}
+                    </h3>
+                    <div className="sp-card-cats">
+                      {project.categories.map((cat) => (
+                        <span key={cat} className="sp-card-cat">{cat}</span>
+                      ))}
+                    </div>
                   </div>
-                  <span className="project-swap-chrome-title">{project.title}</span>
-                  <div className="project-swap-tags">
-                    {project.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
+                  <div className="sp-card-arrow" aria-hidden="true">
+                    <ArrowIcon />
                   </div>
                 </div>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-swap-card-image"
-                />
-              </TypedCard>
-            ))}
-          </TypedCardSwap>
-        </motion.div>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
       </div>
     </section>
   )

@@ -12,17 +12,6 @@ import Lanyard from "./Lanyard/Lanyard";
 import frontImg from "@/image/Group 273.png";
 import backImg from "@/logo/Sibgah Rabbani Kusuma (2).png";
 import cardGLB from "./Lanyard/card.glb";
-
-import logoTelkom from "@/logo/Company_Logo/TelkomSigma.webp";
-import logoSummarecon from "@/logo/Company_Logo/Summarecon_Agung.svg";
-import logoTriverie from "@/logo/Company_Logo/Logo_Triverie_PT.png";
-import logoMain from "@/logo/Company_Logo/logo-main.png";
-import logoFooter from "@/logo/Company_Logo/logofooter.png";
-import logoNew from "@/logo/Company_Logo/newlogos.png";
-import logoImg02 from "@/logo/Company_Logo/img-02.webp";
-import logoHash from "@/logo/Company_Logo/680f3bfb25c9fae7ad98b43a61f90593.png";
-import logoUmn from "@/logo/Company_Logo/Logo-UMN-e1634700898276 (1).png";
-import logoSiloam from "@/logo/Company_Logo/Siloam_Hospitals.svg";
 import certAssembly from "@/sertifikat/previews/Sibgah Rabbani Kusuma.jpg";
 import certAppreciation from "@/sertifikat/previews/Sertifikat_OFFLINE_DANAID8-16.png";
 import certEthicalHacking from "@/sertifikat/previews/Coursera 6RC8BTBXNNLA.jpg";
@@ -43,19 +32,6 @@ type LanyardProps = {
 };
 
 const TypedLanyard = Lanyard as ComponentType<LanyardProps>;
-
-const companyLogos = [
-  { src: logoTelkom, alt: "Telkomsigma" },
-  { src: logoSummarecon, alt: "Summarecon Agung" },
-  { src: logoTriverie, alt: "Triverie" },
-  { src: logoUmn, alt: "UMN" },
-  { src: logoSiloam, alt: "Siloam Hospitals" },
-  { src: logoMain, alt: "Partner" },
-  { src: logoFooter, alt: "Partner" },
-  { src: logoNew, alt: "Partner" },
-  { src: logoImg02, alt: "Partner" },
-  { src: logoHash, alt: "Partner" },
-];
 
 const certifications = [
   { src: certAssembly, alt: "IT Security Awareness — Pradita University" },
@@ -137,8 +113,6 @@ export default function About() {
       window.removeEventListener("keydown", onKey);
     };
   }, [activeCert]);
-
-  const logoLoop = [...companyLogos, ...companyLogos];
 
   return (
     <section id="about" className="about-section">
@@ -231,22 +205,6 @@ export default function About() {
               <p className="about-quote">
                 AI writes code. I ship products people can trust.
               </p>
-            </div>
-
-            <div className="about-block">
-              <div className="about-block-head">
-                <span>Collaborating with Industry Leaders</span>
-                <span className="about-block-line" />
-              </div>
-              <div className="about-logo-marquee" aria-label="Company logos">
-                <div className="about-logo-track">
-                  {logoLoop.map((logo, i) => (
-                    <div key={`${logo.alt}-${i}`} className="about-logo-item">
-                      <img src={logo.src} alt={logo.alt} />
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
             <div className="about-block">

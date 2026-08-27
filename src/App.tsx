@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Collaborating from "./components/Collaborating";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Services from "./components/Services";
@@ -18,6 +19,7 @@ function HomePage() {
     <>
       <Hero />
       <About />
+      <Collaborating />
       <SkillsShowcase />
       <Projects />
       <Experience />
