@@ -121,7 +121,6 @@ export default function SkillsShowcase() {
         transition={{ duration: 0.6 }}
         className="skills-showcase-header"
       >
-        <span className="skills-showcase-label">MY TOOLKIT</span>
         <h2>SKILLS & TECHNOLOGIES</h2>
         <p className="skills-showcase-subtitle">
           Technologies I use to bring digital products to life.{' '}

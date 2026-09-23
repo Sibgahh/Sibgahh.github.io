@@ -72,13 +72,9 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="service-card-wrap"
     >
-      <span className="service-number">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-
       <div className="service-folder-slot">
         <TypedFolder
-          size={2.1}
+          size={2.7}
           color={folderColors[index % folderColors.length]}
           items={folderItems}
         />

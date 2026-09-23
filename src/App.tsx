@@ -7,7 +7,6 @@ import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Services from "./components/Services";
 import SkillsShowcase from "./components/SkillsShowcase";
-import Education from "./components/Education";
 import Contact from "./components/Contact";
 import ProjectDetail from "./components/ProjectDetail";
 import Portfolio from "./components/Portfolio";
@@ -24,7 +23,6 @@ function HomePage() {
       <Projects />
       <Experience />
       <Services />
-      <Education />
       <Contact />
     </>
   );

@@ -1,11 +1,59 @@
 import type { SVGProps } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Mail, Phone, MapPin } from 'lucide-react'
+
+function ArrowUpRight() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="footer-pill-arrow"
+    >
+      <line x1="7" y1="17" x2="17" y2="7" />
+      <polyline points="7 7 17 7 17 17" />
+    </svg>
+  )
+}
+
+function PhoneIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  )
+}
+
+function MailIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  )
+}
 
 function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -24,7 +72,6 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -43,7 +90,6 @@ function InstagramIcon(props: SVGProps<SVGSVGElement>) {
 function TikTokIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -57,200 +103,160 @@ function TikTokIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-interface FooterLink {
+interface NavItem {
   label: string
-  path: string
-  hash: string | null
+  hash: string
 }
 
-const quickLinks: FooterLink[] = [
-  { label: 'Home', path: '/', hash: 'home' },
-  { label: 'About', path: '/', hash: 'about' },
-  { label: 'Work', path: '/', hash: 'projects' },
-  { label: 'Portfolio', path: '/portfolio', hash: null },
-  { label: 'Experience', path: '/', hash: 'experience' },
-  { label: 'Contact', path: '/', hash: 'contact' },
+const quickLinks: NavItem[] = [
+  { label: 'About', hash: 'about' },
+  { label: 'Services', hash: 'services' },
+  { label: 'Projects', hash: 'projects' },
+  { label: 'Experience', hash: 'experience' },
 ]
-
-const serviceLinks: FooterLink[] = [
-  { label: 'Web Development', path: '/', hash: 'services' },
-  { label: 'Mobile App Development', path: '/', hash: 'services' },
-  { label: 'UI/UX Design', path: '/', hash: 'services' },
-  { label: 'Video Editing', path: '/', hash: 'services' },
-  { label: 'Graphic Design', path: '/', hash: 'services' },
-]
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: 'sibgahrk190@gmail.com',
-    href: 'mailto:sibgahrk190@gmail.com',
-  },
-  {
-    icon: Phone,
-    label: '+62 813-1414-7941',
-    href: 'tel:+6281314147941',
-  },
-  {
-    icon: MapPin,
-    label: 'Tangerang, Indonesia',
-    href: undefined,
-  },
-]
-
-const socials = [
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/sibgah/',
-    icon: LinkedinIcon,
-  },
-  {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/sibgahh/',
-    icon: InstagramIcon,
-  },
-  {
-    label: 'TikTok',
-    href: 'https://www.tiktok.com/@hypernutss',
-    icon: TikTokIcon,
-  },
-  {
-    label: 'Email',
-    href: 'mailto:sibgahrk190@gmail.com',
-    icon: Mail,
-  },
-  {
-    label: 'Phone',
-    href: 'tel:+6281314147941',
-    icon: Phone,
-  },
-]
-
-function scrollToId(id: string) {
-  const el = document.getElementById(id)
-  if (!el) return
-  const offset = 88
-  const top = el.getBoundingClientRect().top + window.scrollY - offset
-  window.scrollTo({ top, behavior: 'smooth' })
-}
 
 export default function Footer() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  function handleLinkClick(e: React.MouseEvent, link: FooterLink) {
-    e.preventDefault()
-
-    if (link.path === '/portfolio') {
-      navigate('/portfolio')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+  function scrollToSection(hash: string) {
+    if (location.pathname !== '/') {
+      navigate(`/#${hash}`)
       return
     }
-
-    if (!link.hash) {
-      navigate('/')
-      return
+    const el = document.getElementById(hash)
+    if (el) {
+      const offset = 80
+      const top = el.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top, behavior: 'smooth' })
     }
-
-    if (location.pathname === '/') {
-      navigate(`/#${link.hash}`, { replace: true })
-      scrollToId(link.hash)
-      return
-    }
-
-    navigate(`/#${link.hash}`)
   }
 
   return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <div className="footer-grid">
-          {/* Brand */}
-          <div className="footer-brand">
-            <div className="footer-logo">
-              <span className="footer-logo-text">Sibgah R. Kusuma</span>
-            </div>
-            <p className="footer-tagline">
-              I design and build stylish, user-focused mobile &amp; web
-              experiences that combine creativity with strategy.
-            </p>
-            <div className="footer-socials">
-              {socials.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  className="footer-social"
-                  aria-label={label}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                >
-                  <Icon className="footer-social-icon" aria-hidden />
-                </a>
-              ))}
-            </div>
+    <footer className="footer-redesign">
+      <div className="footer-redesign-container">
+        {/* --- Top 3-Column Info Row --- */}
+        <div className="footer-top-grid">
+          {/* Left Column: Mission & CTA Button */}
+          <div className="footer-top-col footer-col-pitch">
+            <h3 className="footer-pitch-heading">
+              Not just a website,
+              <br />
+              real business results
+            </h3>
+
+            <button
+              type="button"
+              onClick={() => scrollToSection('contact')}
+              className="footer-start-project-btn"
+            >
+              <span>Start a Project</span>
+              <span className="footer-btn-circle" aria-hidden="true">
+                <ArrowUpRight />
+              </span>
+            </button>
           </div>
 
-          {/* Quick Links */}
-          <div className="footer-col">
-            <h3 className="footer-col-title">Quick Links</h3>
-            <nav className="footer-links">
-              {quickLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.hash ? `/#${link.hash}` : link.path}
-                  className="footer-link"
-                  onClick={(e) => handleLinkClick(e, link)}
+          {/* Middle Column: Quick Links */}
+          <div className="footer-top-col footer-col-links">
+            <h4 className="footer-section-title">Quick Links</h4>
+            <nav className="footer-nav-list">
+              {quickLinks.map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={() => scrollToSection(item.hash)}
+                  className="footer-nav-link"
                 >
-                  {link.label}
-                </a>
+                  {item.label}
+                </button>
               ))}
             </nav>
           </div>
 
-          {/* Services */}
-          <div className="footer-col">
-            <h3 className="footer-col-title">Services</h3>
-            <nav className="footer-links">
-              {serviceLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={`/#${link.hash}`}
-                  className="footer-link"
-                  onClick={(e) => handleLinkClick(e, link)}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
+          {/* Right Column: Contact System */}
+          <div className="footer-top-col footer-col-contact">
+            <h4 className="footer-section-title">Contact System</h4>
+            <div className="footer-contact-system-list">
+              <a
+                href="https://wa.me/6281314147941"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-row"
+              >
+                <span className="footer-contact-icon-chip" aria-hidden="true">
+                  <PhoneIcon className="footer-contact-icon-svg" />
+                </span>
+                <span className="footer-contact-text">+62 813-1414-7941</span>
+              </a>
 
-          {/* Contact Info */}
-          <div className="footer-col">
-            <h3 className="footer-col-title">Contact Info</h3>
-            <div className="footer-contact-list">
-              {contactInfo.map(({ icon: Icon, label, href }) => {
-                const Wrapper = href ? 'a' : 'div'
-                const linkProps = href ? { href } : {}
-                return (
-                  <Wrapper
-                    key={label}
-                    className="footer-contact-item"
-                    {...(linkProps as any)}
-                  >
-                    <Icon className="footer-contact-icon" aria-hidden />
-                    <span>{label}</span>
-                  </Wrapper>
-                )
-              })}
+              <a
+                href="https://www.linkedin.com/in/sibgah/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-contact-row"
+              >
+                <span className="footer-contact-icon-chip" aria-hidden="true">
+                  <LinkedinIcon className="footer-contact-icon-svg" />
+                </span>
+                <span className="footer-contact-text">linkedin.com/in/sibgah</span>
+              </a>
+
+              <a
+                href="mailto:sibgahrk190@gmail.com"
+                className="footer-contact-row"
+              >
+                <span className="footer-contact-icon-chip" aria-hidden="true">
+                  <MailIcon className="footer-contact-icon-svg" />
+                </span>
+                <span className="footer-contact-text">sibgahrk190@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <span>
-            Copyright {new Date().getFullYear()} Sibgah Rabbani Kusuma. All
-            rights reserved.
-          </span>
+        {/* --- Giant SIBGAH Watermark Banner --- */}
+        <div className="footer-giant-watermark-wrap" aria-hidden="true">
+          <span className="footer-giant-watermark-text">SIBGAH</span>
+        </div>
+
+        {/* --- Bottom Row: Socials & Copyright --- */}
+        <div className="footer-bottom-bar">
+          <div className="footer-social-chips">
+            <a
+              href="https://www.linkedin.com/in/sibgah/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-chip"
+              aria-label="LinkedIn"
+            >
+              <LinkedinIcon />
+            </a>
+
+            <a
+              href="https://www.instagram.com/sibgahh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-chip"
+              aria-label="Instagram"
+            >
+              <InstagramIcon />
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@hypernutss"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social-chip"
+              aria-label="TikTok"
+            >
+              <TikTokIcon />
+            </a>
+          </div>
+
+          <div className="footer-copyright">
+            <span>© {new Date().getFullYear()}. SIBGAH - All rights reserved</span>
+          </div>
         </div>
       </div>
     </footer>

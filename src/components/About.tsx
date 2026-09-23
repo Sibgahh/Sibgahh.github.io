@@ -7,7 +7,7 @@ import {
 } from "react";
 import { motion, useInView } from "framer-motion";
 import { useGLTF } from "@react-three/drei";
-import { Mail, Phone, ExternalLink, Award, X } from "lucide-react";
+import { Mail, Phone, Award, X } from "lucide-react";
 import Lanyard from "./Lanyard/Lanyard";
 import frontImg from "@/image/Group 273.png";
 import backImg from "@/logo/Sibgah Rabbani Kusuma (2).png";
@@ -73,11 +73,57 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+function InstagramIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
+function TikTokIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+    </svg>
+  );
+}
+
 const socials = [
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/sibgah/",
     icon: LinkedinIcon,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/sibgahh/",
+    icon: InstagramIcon,
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@hypernutss",
+    icon: TikTokIcon,
   },
   {
     label: "Email",
@@ -187,16 +233,16 @@ export default function About() {
                 <span>Why Hire Me, Not AI</span>
                 <span className="about-block-line" />
               </div>
-              <h3 className="about-headline">
+              <h3 className="about-headline text-2xl md:text-3xl font-bold text-gray-900 dark:text-white leading-tight">
                 AI can generate code. <em>It can&apos;t own the outcome.</em>
               </h3>
-              <p className="about-body">
+              <p className="about-body text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
                 A prompt gives you a guess. I give you a product — I sit with
                 the real problem, connect <strong>business goals</strong> with{" "}
                 <strong>user needs</strong>, and make the judgment calls no
                 model can: what to build, what to cut, and why it matters.
               </p>
-              <p className="about-body">
+              <p className="about-body text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
                 I catch the edge cases, debug the weird stuff, talk to
                 stakeholders, and take full ownership from wireframe to
                 production — accountable, adaptable, and invested in getting it
@@ -232,9 +278,9 @@ export default function About() {
                     href.startsWith("http") ? "noopener noreferrer" : undefined
                   }
                   aria-label={label}
+                  title={label}
                 >
-                  <Icon className="about-social-icon" />
-                  <ExternalLink className="about-social-ext" aria-hidden />
+                  <Icon className="about-social-icon" aria-hidden />
                 </a>
               ))}
             </div>

@@ -36,7 +36,7 @@ function RollingTextItem({ item, isActive, onClick }: RollingTextItemProps) {
       )}
     >
       {/* Rolling text */}
-      <div className="relative overflow-hidden h-[52px] md:h-20 pr-28 md:pr-40">
+      <div className="relative overflow-hidden h-[52px] md:h-20 pr-36 md:pr-56 lg:pr-64">
         <div
           className={cn(
             "transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]",
@@ -80,8 +80,8 @@ function RollingTextItem({ item, isActive, onClick }: RollingTextItemProps) {
       {/* Image reveal — hover only while collapsed; hidden when expanded */}
       <div
         className={cn(
-          "pointer-events-none absolute right-0 top-1/2 z-20 -translate-y-1/2 overflow-hidden rounded-md shadow-xl",
-          "h-14 w-24 md:h-16 md:w-28",
+          "pointer-events-none absolute right-0 top-1/2 z-20 -translate-y-1/2 overflow-hidden rounded-xl shadow-2xl border border-white/10",
+          "h-20 w-32 md:h-28 md:w-44 lg:h-32 lg:w-56",
           "transition-all duration-500 ease-out",
           isActive
             ? "opacity-0 scale-90 pointer-events-none invisible"
@@ -128,8 +128,18 @@ function RollingTextList({
 }: RollingTextListProps) {
   return (
     <div
+      style={{
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: "1024px",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
       className={cn(
-        "mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-0 py-4",
+        "rolling-list-wrapper mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-0 py-4",
         className,
       )}
     >

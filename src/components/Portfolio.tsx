@@ -27,12 +27,20 @@ function ProjectCard({ item, index }: { item: PortfolioItem; index: number }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
     >
-      <Link to={item.href ?? `/project/${item.id}`} className="portfolio-card">
+      <Link
+        to={item.href ?? `/project/${item.id}`}
+        className={`portfolio-card ${item.featured ? "is-featured" : ""}`}
+      >
         <div
           className={`portfolio-card-media ${
             item.thumbnailFit === "contain" ? "is-logo" : ""
-          }`}
+          } ${item.featured ? "is-featured-media" : ""}`}
         >
+          {item.featured && (
+            <span className="portfolio-card-featured-badge">
+              <span className="portfolio-featured-star" aria-hidden="true">✦</span> Highlight
+            </span>
+          )}
           <img src={item.thumbnail} alt={item.title} />
         </div>
         <h3 className="portfolio-card-title">{item.title}</h3>

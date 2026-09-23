@@ -4,6 +4,11 @@ import smsThumbnail from '@/3dAssetThumbnail/sms.jpeg'
 import anakpipaThumbnail from '@/3dAssetThumbnail/anakpipa.jpeg'
 import todoThumbnail from '@/3dAssetThumbnail/todo.jpeg'
 import bannerThumb from '@/Website Banner/Banner1 (1).jpg'
+import telkomsigmaThumbnail from '@/telkomsigma/ChatGPT Image Aug 27, 2026, 11_16_50 AM.png'
+import ukmThumbnail from '@/3dAssetThumbnail/ukm.jpeg'
+import thesisThumbnail from '@/3dAssetThumbnail/thesis.png'
+import sibertahanThumbnail from '@/3dAssetThumbnail/Sibertahan.png'
+import hypermartThumbnail from '@/3dAssetThumbnail/Hypermart Warehouse.png'
 import { brandVideoProjects } from '@/data/videos'
 import {
   coverForBrand,
@@ -30,6 +35,7 @@ export interface PortfolioItem {
   thumbnailFit?: 'cover' | 'contain'
   /** Optional override when the detail experience is not `/project/:id`. */
   href?: string
+  featured?: boolean
 }
 
 export const CATEGORY_META: {
@@ -62,12 +68,31 @@ const creativeBrandItems: PortfolioItem[] = creativeBrands.map((brand) => ({
 
 export const portfolioItems: PortfolioItem[] = [
   {
-    id: 'pradita-canteen',
-    title: 'Pradita Canteen',
-    subtitle: 'Food Order System',
+    id: 'telkomsigma',
+    title: 'Employee Self System',
+    subtitle: 'Enterprise Mobile App',
     category: 'Software Development',
-    tags: ['Flutter', 'Firebase', 'Dart', 'FCM'],
-    thumbnail: eateaseThumbnail,
+    tags: ['React Native', 'TypeScript', 'Redux', 'Enterprise'],
+    thumbnail: telkomsigmaThumbnail,
+    featured: true,
+  },
+  {
+    id: 'sibertahan',
+    title: 'Sibertahan',
+    subtitle: 'Cybersecurity Consulting Website',
+    category: 'Software Development',
+    tags: ['React', 'TypeScript', 'Cybersecurity', 'Frontend'],
+    thumbnail: sibertahanThumbnail,
+    featured: true,
+  },
+  {
+    id: 'hypermart-wms',
+    title: 'Hypermart WMS',
+    subtitle: 'Warehouse Management System',
+    category: 'Software Development',
+    tags: ['React', 'TypeScript', 'Laravel', 'Warehouse'],
+    thumbnail: hypermartThumbnail,
+    featured: true,
   },
   {
     id: 'cangopi-pos',
@@ -76,6 +101,15 @@ export const portfolioItems: PortfolioItem[] = [
     category: 'Software Development',
     tags: ['Laravel', 'PHP', 'JavaScript', 'Blade'],
     thumbnail: cangopiThumbnail,
+    featured: true,
+  },
+  {
+    id: 'pradita-canteen',
+    title: 'Pradita Canteen',
+    subtitle: 'Food Order System',
+    category: 'Software Development',
+    tags: ['Flutter', 'Firebase', 'Dart', 'FCM'],
+    thumbnail: eateaseThumbnail,
   },
   {
     id: 'summarecon',
@@ -100,6 +134,22 @@ export const portfolioItems: PortfolioItem[] = [
     category: 'Software Development',
     tags: ['Figma', 'UI/UX', 'Prototyping'],
     thumbnail: todoThumbnail,
+  },
+  {
+    id: 'ukm-finance',
+    title: 'UKM Finance',
+    subtitle: 'Financial Management System',
+    category: 'Software Development',
+    tags: ['Laravel', 'PHP', 'Finance', 'Dashboard'],
+    thumbnail: ukmThumbnail,
+  },
+  {
+    id: 'thesis-portal',
+    title: 'Thesis Portal',
+    subtitle: 'Academic Thesis Management',
+    category: 'Software Development',
+    tags: ['PHP', 'Web App', 'Academic', 'University'],
+    thumbnail: thesisThumbnail,
   },
   {
     id: 'website-banner',

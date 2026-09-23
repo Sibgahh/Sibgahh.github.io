@@ -22,11 +22,12 @@ const experiences: ExperienceEntry[] = [
     company: 'PT Sigma Cipta Caraka (Telkomsigma)',
     companyLogo: telkomLogo,
     period: 'Jun 2025 – Dec 2025',
-    stack: ['React Native', 'TypeScript', 'Redux', 'REST API', 'Git'],
+    stack: ['React Native', 'TypeScript', 'Redux Toolkit', 'Axios', 'REST API', 'Git'],
     highlights: [
-      'Engineered a cross-platform React Native app digitising HR and admin functions for 2,300+ employees.',
-      'Integrated REST APIs and managed state with Redux for consistent real-time data flow.',
-      'Collaborated with backend engineers and UI/UX designers across the full feature lifecycle.',
+      'Architected and maintained a cross-platform React Native enterprise app for 2,300+ daily employees, resolving post-launch stability issues to ensure high availability.',
+      'Engineered predictable global state with Redux Toolkit and integrated modular REST APIs via Axios for real-time synchronization.',
+      'Achieved a 100% functional test pass rate and conducted a 25-stakeholder UAT evaluation, securing an 83.2% user satisfaction score.',
+      'Streamlined sprint delivery in an Agile workflow through structured Git/GitHub branching and rigorous code reviews.',
     ],
   },
   {
@@ -34,11 +35,12 @@ const experiences: ExperienceEntry[] = [
     role: 'Frontend Developer',
     company: 'PT Humanis Siber Indonesia',
     companyLogo: humanisLogo,
-    period: 'Apr 2025 – Jun 2025',
-    stack: ['Vue.js', 'Tailwind CSS', 'JavaScript'],
+    period: 'Mar 2025 – May 2025',
+    stack: ['Vue.js', 'Tailwind CSS', 'JavaScript', 'Responsive Design', 'WCAG'],
     highlights: [
-      'Designed and developed conversion-focused landing pages with Vue.js and Tailwind CSS.',
-      'Ensured full responsiveness and WCAG-aligned accessibility across all viewports.',
+      'Developed a high-converting company profile website using Vue.js and Tailwind CSS with strategic CTAs, driving an estimated 31% traffic growth.',
+      'Delivered WCAG-aligned accessibility and cross-platform fidelity across mobile, tablet, and desktop breakpoints.',
+      'Collaborated closely with UI/UX designers to translate Figma mockups into reusable, performant frontend components.',
     ],
   },
   {
@@ -47,11 +49,11 @@ const experiences: ExperienceEntry[] = [
     company: 'Cangopi',
     companyLogo: cangopiLogo,
     period: 'Jun 2024 – Dec 2024',
-    stack: ['Laravel', 'Blade', 'PHP', 'JavaScript', 'CSS'],
+    stack: ['JavaScript', 'HTML5/CSS3', 'Laravel', 'REST API', 'PHP'],
     highlights: [
-      'Built a web-based POS app with Laravel for cashier transactions, menu management, and stock reporting.',
-      'Developed end-to-end frontend modules for order processing, payment handling, and receipt generation.',
-      'Applied component-based UI principles for reusable, maintainable frontend components.',
+      'Engineered an end-to-end web POS frontend on a Laravel backend, automating cashier orders, payment processing, and receipt generation.',
+      'Built real-time inventory and stock reporting modules for ingredient movement tracking and daily reconciliation.',
+      'Aligned REST API contracts with backend engineers and implemented modular vanilla JS patterns for maintainable code.',
     ],
   },
   {
@@ -59,11 +61,12 @@ const experiences: ExperienceEntry[] = [
     role: 'UI/UX Designer',
     company: 'CV. Anakpipa Sinergi Pratama',
     companyLogo: anakpipaLogo,
-    period: 'Jun 2023 – Oct 2023',
+    period: 'Jun 2023 – Aug 2023',
     stack: ['Figma', 'User Research', 'Wireframing', 'Prototyping'],
     highlights: [
-      'Designed a B2B sales platform web interface focused on task efficiency and navigation clarity.',
-      'Conducted user research and iterated designs through client feedback with interactive Figma prototypes.',
+      'Spearheaded user research and workflow analysis to identify bottlenecks in an existing B2B sales and procurement platform.',
+      'Designed wireframes and interactive prototypes in Figma, iterating across 2 client review cycles to balance usability and business goals.',
+      'Validated prototypes against real B2B user workflows, eliminating design ambiguity prior to engineering handoff.',
     ],
   },
 ]
@@ -71,15 +74,18 @@ const experiences: ExperienceEntry[] = [
 function ExperienceCard({ exp }: { exp: ExperienceEntry }) {
   return (
     <div className="timeline-card">
-      <div className="timeline-card-top">
+      <div className="timeline-card-header">
         <span className="timeline-logo-chip">
           <img src={exp.companyLogo} alt={`${exp.company} logo`} />
         </span>
-        <span className="timeline-period">{exp.period}</span>
+        <div className="timeline-card-titles">
+          <div className="timeline-role-row">
+            <h4 className="timeline-role">{exp.role}</h4>
+            <span className="timeline-period">{exp.period}</span>
+          </div>
+          <p className="timeline-company">{exp.company}</p>
+        </div>
       </div>
-
-      <h4 className="timeline-role">{exp.role}</h4>
-      <p className="timeline-company">{exp.company}</p>
 
       <ul className="timeline-highlights">
         {exp.highlights.map((h, idx) => (
