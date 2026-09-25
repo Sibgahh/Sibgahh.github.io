@@ -36,11 +36,6 @@ function ProjectCard({ item, index }: { item: PortfolioItem; index: number }) {
             item.thumbnailFit === "contain" ? "is-logo" : ""
           } ${item.featured ? "is-featured-media" : ""}`}
         >
-          {item.featured && (
-            <span className="portfolio-card-featured-badge">
-              <span className="portfolio-featured-star" aria-hidden="true">✦</span> Highlight
-            </span>
-          )}
           <img src={item.thumbnail} alt={item.title} />
         </div>
         <h3 className="portfolio-card-title">{item.title}</h3>

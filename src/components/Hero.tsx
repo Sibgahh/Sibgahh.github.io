@@ -11,8 +11,9 @@ const ROLES = [
   "Mobile Developer",
   "UI/UX Designer",
   "IoT Engineer",
+  "Software Quality Assurance",
   "Graphic Design",
-  "Video Editor",
+  "Video Editor"
 ];
 
 const TYPING_SPEED_MS = 70;

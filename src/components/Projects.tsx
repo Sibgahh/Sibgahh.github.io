@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import telkomsigmaThumbnail from '@/telkomsigma/ChatGPT Image Aug 27, 2026, 11_16_50 AM.png'
-import cangopiThumbnail from '@/3dAssetThumbnail/cangopi.jpeg'
 import eateaseThumbnail from '@/3dAssetThumbnail/eatease.jpeg'
 import smsThumbnail from '@/3dAssetThumbnail/sms.jpeg'
 import todoThumbnail from '@/3dAssetThumbnail/todo.jpeg'
@@ -10,6 +9,43 @@ import ukmThumbnail from '@/3dAssetThumbnail/ukm.jpeg'
 import thesisThumbnail from '@/3dAssetThumbnail/thesis.png'
 import sibertahanThumbnail from '@/3dAssetThumbnail/Sibertahan.png'
 import hypermartThumbnail from '@/3dAssetThumbnail/Hypermart Warehouse.png'
+import iotThumbnail from '@/3dAssetThumbnail/IoT.png'
+
+// ── Devicon CDN helper ────────────────────────────────────────────────────────
+const D = (slug: string, variant = 'original') =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${slug}/${slug}-${variant}.svg`
+
+// Custom logo overrides (for icons that need a coloured variant or different source)
+const LOGOS: Record<string, string> = {
+  reactNative: D('react'),
+  typescript:  D('typescript'),
+  redux:       D('redux'),
+  react:       D('react'),
+  laravel:     D('laravel'),
+  mysql:       D('mysql'),
+  vite:        D('vitejs'),
+  python:      D('python'),
+  opencv:      D('opencv'),
+  raspberrypi: D('raspberrypi'),
+  javascript:  D('javascript'),
+  php:         D('php'),
+  figma:       D('figma'),
+  flutter:     D('flutter'),
+  firebase:    D('firebase'),
+  arduino:     D('arduino'),
+  bootstrap:   D('bootstrap'),
+  vue:         D('vuejs'),
+  tailwind:    D('tailwindcss'),
+  nodejs:      D('nodejs'),
+  prisma:      D('prisma'),
+}
+
+interface TechBadge { name: string; icon: string }
+
+const T = (key: string, label?: string): TechBadge => ({
+  name: label ?? key,
+  icon: LOGOS[key] ?? LOGOS['javascript'],
+})
 
 interface FeaturedProject {
   id: string
@@ -18,6 +54,7 @@ interface FeaturedProject {
   tag: string
   watermark: string
   image: string
+  stack: TechBadge[]
 }
 
 const softwareProjects: FeaturedProject[] = [
@@ -28,6 +65,11 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'Mobile App',
     watermark: 'TELKOM',
     image: telkomsigmaThumbnail,
+    stack: [
+      T('reactNative', 'React Native'),
+      T('typescript', 'TypeScript'),
+      T('redux', 'Redux'),
+    ],
   },
   {
     id: 'hypermart-wms',
@@ -36,14 +78,24 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'Web Development',
     watermark: 'WAREHOUSE',
     image: hypermartThumbnail,
+    stack: [
+      T('javascript', 'JSX'),
+      T('nodejs', 'Node.js'),
+      T('mysql', 'MySQL'),
+      T('prisma', 'Prisma'),
+    ],
   },
   {
-    id: 'cangopi-pos',
-    title: 'Cangopi POS & Order System',
-    subtitle: 'Point of sale and real-time inventory management platform for F&B.',
-    tag: 'Web Development',
-    watermark: 'CANGOPI',
-    image: cangopiThumbnail,
+    id: 'iot-smart-traffic-light',
+    title: 'IoT Smart Traffic Light',
+    subtitle: 'AI-powered 4-lane vehicle detection and adaptive signal control system.',
+    tag: 'IoT / AI',
+    watermark: 'IoT',
+    image: iotThumbnail,
+    stack: [
+      T('python', 'Python'),
+      T('arduino', 'Arduino Uno'),
+      ],
   },
   {
     id: 'sibertahan',
@@ -52,6 +104,10 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'Web Development',
     watermark: 'CYBER',
     image: sibertahanThumbnail,
+    stack: [
+      T('vue', 'Vue.js'),
+      T('tailwind', 'Tailwind CSS'),
+    ],
   },
   {
     id: 'summarecon',
@@ -60,6 +116,9 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'UI/UX Design',
     watermark: 'SERPONG',
     image: smsThumbnail,
+    stack: [
+      T('figma', 'Figma'),
+    ],
   },
   {
     id: 'pradita-canteen',
@@ -68,6 +127,10 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'Mobile App',
     watermark: 'CANTEEN',
     image: eateaseThumbnail,
+    stack: [
+      T('flutter', 'Flutter'),
+      T('firebase', 'Firebase'),
+    ],
   },
   {
     id: 'anakpipa',
@@ -76,6 +139,9 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'UI/UX Design',
     watermark: 'ANAKPIPA',
     image: anakpipaThumbnail,
+    stack: [
+      T('figma', 'Figma'),
+    ],
   },
   {
     id: 'cheetask',
@@ -84,6 +150,9 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'Mobile App',
     watermark: 'CHEETASK',
     image: todoThumbnail,
+    stack: [
+      T('figma', 'Figma'),
+    ],
   },
   {
     id: 'ukm-finance',
@@ -92,6 +161,12 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'Web Development',
     watermark: 'FINANCE',
     image: ukmThumbnail,
+    stack: [
+      T('laravel', 'Laravel'),
+      T('php', 'PHP'),
+      T('mysql', 'MySQL'),
+      T('javascript', 'JavaScript'),
+    ],
   },
   {
     id: 'thesis-portal',
@@ -100,8 +175,16 @@ const softwareProjects: FeaturedProject[] = [
     tag: 'Web Development',
     watermark: 'THESIS',
     image: thesisThumbnail,
+    stack: [
+      T('php', 'PHP'),
+      T('mysql', 'MySQL'),
+      T('bootstrap', 'Bootstrap'),
+      T('javascript', 'JavaScript'),
+    ],
   },
 ]
+
+// ── Sub-components ────────────────────────────────────────────────────────────
 
 function ArrowDiagonal() {
   return (
@@ -117,6 +200,28 @@ function ArrowDiagonal() {
       <line x1="7" y1="17" x2="17" y2="7" />
       <polyline points="7 7 17 7 17 17" />
     </svg>
+  )
+}
+
+function TechStack({ stack }: { stack: TechBadge[] }) {
+  return (
+    <div className="sp-tech-stack">
+      {stack.map((tech) => (
+        <div key={tech.name} className="sp-tech-badge" title={tech.name}>
+          <img
+            src={tech.icon}
+            alt={tech.name}
+            className="sp-tech-logo"
+            loading="lazy"
+            onError={(e) => {
+              // Fallback: hide broken icon
+              (e.currentTarget as HTMLImageElement).style.display = 'none'
+            }}
+          />
+          <span className="sp-tech-tooltip">{tech.name}</span>
+        </div>
+      ))}
+    </div>
   )
 }
 
@@ -162,8 +267,12 @@ function ProjectCard({
         <div className="sp-meta-block">
           <h3 className="sp-title">{project.title}</h3>
           <p className="sp-desc">{project.subtitle}</p>
-          <div className="sp-tags-row">
-            <span className="sp-tag-pill">{project.tag}</span>
+          <div className="sp-meta-footer">
+            <div className="sp-tags-row">
+              <span className="sp-tag-pill">{project.tag}</span>
+            </div>
+            {/* Tech stack logos */}
+            <TechStack stack={project.stack} />
           </div>
         </div>
       </Link>

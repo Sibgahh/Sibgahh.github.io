@@ -9,6 +9,7 @@ import ukmThumbnail from '@/3dAssetThumbnail/ukm.jpeg'
 import thesisThumbnail from '@/3dAssetThumbnail/thesis.png'
 import sibertahanThumbnail from '@/3dAssetThumbnail/Sibertahan.png'
 import hypermartThumbnail from '@/3dAssetThumbnail/Hypermart Warehouse.png'
+import iotThumbnail from '@/3dAssetThumbnail/IoT.png'
 import { brandVideoProjects } from '@/data/videos'
 import {
   coverForBrand,
@@ -96,11 +97,19 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: 'cangopi-pos',
-    title: 'Cangopi POS',
-    subtitle: 'Point of Sale Application',
+    title: 'Cangopi POS & Order System',
+    subtitle: 'Point of Sale & Order Management',
     category: 'Software Development',
     tags: ['Laravel', 'PHP', 'JavaScript', 'Blade'],
     thumbnail: cangopiThumbnail,
+  },
+  {
+    id: 'iot-smart-traffic-light',
+    title: 'IoT Smart Traffic Light',
+    subtitle: 'AI-Powered Traffic Management System',
+    category: 'Software Development',
+    tags: ['IoT', 'Python', 'YOLOv8', 'Computer Vision', 'Raspberry Pi'],
+    thumbnail: iotThumbnail,
     featured: true,
   },
   {

@@ -83,6 +83,13 @@ import hypermartUsers from "@/Hypermart Warehouse management/screencapture-local
 import hypermartItem1 from "@/Hypermart Warehouse management/image 10960.png";
 import hypermartItem2 from "@/Hypermart Warehouse management/image 10961.png";
 
+// IoT Smart Traffic Light
+import iotThumb from "@/3dAssetThumbnail/IoT.png";
+import iotDetection from "@/IoT Smart Traffic Light/1749530697598.jpg";
+import iotModelComparison from "@/IoT Smart Traffic Light/1749530731894.jpg";
+import iotLiveView1 from "@/IoT Smart Traffic Light/Screenshot 2026-09-25 190034.png";
+import iotLiveView2 from "@/IoT Smart Traffic Light/Screenshot 2026-09-25 190944.png";
+
 function isCreativeBrandId(id: string): id is CreativeBrandId {
   return creativeBrands.some((brand) => brand.id === id);
 }
@@ -316,8 +323,8 @@ const projectsData: Record<string, ProjectData> = {
   },
   "cangopi-pos": {
     id: "cangopi-pos",
-    title: "Cangopi POS",
-    subtitle: "Point of Sale Application",
+    title: "Cangopi POS & Order System",
+    subtitle: "Point of Sale & Order Management Application",
     period: "Jun 2024 – Dec 2024",
     role: "Frontend Developer",
     type: "Web Application",
@@ -772,6 +779,76 @@ const projectsData: Record<string, ProjectData> = {
       ],
     },
   },
+  "iot-smart-traffic-light": {
+    id: "iot-smart-traffic-light",
+    title: "IoT Smart Traffic Light",
+    subtitle: "AI-Powered Traffic Management System",
+    period: "Jun 2025",
+    role: "AI / IoT Engineer",
+    type: "Embedded System & Computer Vision",
+    stack: ["Python", "YOLOv8", "OpenCV", "Raspberry Pi", "Arduino", "MQTT", "IoT"],
+    description:
+      "An intelligent traffic light control system that uses real-time computer vision (YOLOv8) to detect and count vehicles across four lanes, dynamically adjusting signal timing based on traffic density to reduce congestion.",
+    highlights: [
+      "Trained and benchmarked 11 YOLOv8 custom models; surveillance.pt achieved the highest detection score of 0.9838 with 7 detections per frame.",
+      "Built a real-time 4-lane vehicle detection pipeline using OpenCV and Raspberry Pi with live signal phase control.",
+      "Integrated physical LED traffic light hardware with the AI decision engine via GPIO and MQTT for closed-loop feedback.",
+    ],
+    thumbnail: iotThumb,
+    images: [iotLiveView1, iotDetection, iotModelComparison, iotLiveView2],
+    caseStudy: {
+      overview: [
+        "The IoT Smart Traffic Light is an AI-driven embedded system that replaces fixed-timer traffic signals with a dynamic, vision-based controller. It monitors four road lanes using camera feeds, detects and counts vehicles in real time with a custom YOLOv8 model, then computes optimal signal phases to minimize wait times and congestion.",
+        "As the AI / IoT Engineer, I designed the full pipeline — from dataset collection and model training to OpenCV integration, Raspberry Pi deployment, and physical traffic-light hardware control. The system brings together computer vision, embedded computing, and real-time hardware actuation in a single closed-loop solution.",
+        "Eleven custom detection models were trained and benchmarked against a standardized test scenario. The final recommended model, surveillance.pt, achieved an overall score of 0.9838 — detecting 7 vehicles per frame across classes including car, bus, truck, mobil, and motor.",
+      ],
+      challenge:
+        "Fixed-cycle traffic lights cannot respond to real-world demand. Rush-hour bottlenecks on under-loaded signal phases waste green time while congested lanes idle. The challenge was to build an embedded AI system that could detect multi-class vehicles on a live camera feed and actuate physical signal hardware fast enough to make a practical difference.",
+      problem: [
+        "Static signal timing ignores actual traffic density, causing unnecessary delays.",
+        "Standard camera-based detection models were not trained on local vehicle classes (mobil, motor, bus).",
+        "Eleven candidate models needed systematic benchmarking for detection count, speed, and confidence.",
+        "The decision engine had to run in real time on resource-constrained Raspberry Pi hardware.",
+        "Physical LED signals needed reliable GPIO and MQTT integration with the AI pipeline.",
+      ],
+      solution: [
+        "Custom YOLOv8 models trained on locally-collected vehicle imagery covering car, bus, truck, mobil, and motor classes.",
+        "Automated model benchmarking pipeline comparing detection count, processing time, and average confidence across 11 models.",
+        "Real-time 4-lane vehicle counting with OpenCV feeding a phase-selection algorithm.",
+        "Raspberry Pi deployment with GPIO-driven LED control and MQTT for hardware signal actuation.",
+        "Modular pipeline separating detection, counting, phase logic, and hardware output for maintainability.",
+      ],
+      journey: [
+        "Collected and labeled a custom dataset of local Indonesian vehicle types for YOLOv8 fine-tuning.",
+        "Trained 11 model variants and built an automated benchmarking script comparing detection performance.",
+        "Selected surveillance.pt (score 0.9838) and integrated it into the 4-lane OpenCV detection pipeline.",
+        "Deployed the inference engine on Raspberry Pi and wired GPIO outputs to physical traffic light LEDs.",
+        "Tuned the phase-switching algorithm using real road footage to minimize average wait time.",
+      ],
+      outcomes: [
+        "A working smart traffic light prototype with real-time AI-driven phase control.",
+        "surveillance.pt model achieving 0.9838 overall benchmark score with 7 detections per frame.",
+        "4-lane simultaneous monitoring with dynamic green-phase allocation based on vehicle density.",
+        "Closed-loop hardware integration from camera input to physical LED signal output.",
+        "A reusable benchmarking framework for future traffic-detection model iterations.",
+      ],
+      links: "—",
+      responsibilities: [
+        "Collecting and labeling a custom vehicle detection dataset",
+        "Training and benchmarking 11 YOLOv8 model variants",
+        "Building the real-time 4-lane OpenCV detection pipeline",
+        "Deploying the inference system on Raspberry Pi hardware",
+        "Integrating GPIO and MQTT for physical traffic light actuation",
+        "Designing the phase-selection algorithm for dynamic signal timing",
+      ],
+      impact: [
+        "Replaced static timer logic with AI-driven, demand-responsive signal control",
+        "Achieved 0.9838 benchmark score with the custom surveillance.pt model",
+        "Demonstrated feasibility of edge-AI traffic management on low-cost hardware",
+        "Established a reusable pipeline for future smart city IoT deployments",
+      ],
+    },
+  },
 };
 
 const SIDEBAR_SECTIONS = [
@@ -1126,6 +1203,65 @@ export default function ProjectDetail() {
         <img src={project.thumbnail} alt={project.title} />
       </motion.div>
 
+      {/* ── Project Gallery (directly below thumbnail) ── */}
+      {project.images.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="project-detail-gallery"
+        >
+          <div className="project-detail-gallery-header">
+            <div>
+              <h2>Project Gallery</h2>
+              <p className="project-detail-gallery-sub">
+                Interface screens &amp; software prototype views. Click any screen to view full size preview.
+              </p>
+            </div>
+            <span className="project-gallery-count-badge">
+              {project.images.length} {project.images.length === 1 ? "Screen" : "Screens"}
+            </span>
+          </div>
+
+          <div className="project-gallery-grid">
+            {project.images.map((img, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.4, delay: idx * 0.04 }}
+                className="gallery-item"
+                onClick={() => setPreviewIndex(idx)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setPreviewIndex(idx);
+                  }
+                }}
+                aria-label={`View full preview of ${project.title} screen ${idx + 1}`}
+              >
+                <img
+                  src={img}
+                  alt={`${project.title} screenshot ${idx + 1}`}
+                  loading="lazy"
+                />
+                <div className="gallery-item-overlay">
+                  <span className="gallery-item-badge">
+                    Screen {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span className="gallery-item-action">
+                    <Maximize2 size={14} />
+                    <span>Preview</span>
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      )}
       {project.caseStudy ? (
         <CaseStudyBlock
           caseStudy={project.caseStudy}
@@ -1193,64 +1329,6 @@ export default function ProjectDetail() {
           </motion.div>
         </>
       )}
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.6 }}
-        className="project-detail-gallery"
-      >
-        <div className="project-detail-gallery-header">
-          <div>
-            <h2>Project Gallery</h2>
-            <p className="project-detail-gallery-sub">
-              Interface screens &amp; software prototype views. Click any screen to view full size preview.
-            </p>
-          </div>
-          <span className="project-gallery-count-badge">
-            {project.images.length} {project.images.length === 1 ? "Screen" : "Screens"}
-          </span>
-        </div>
-
-        <div className="project-gallery-grid">
-          {project.images.map((img, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.4, delay: idx * 0.04 }}
-              className="gallery-item"
-              onClick={() => setPreviewIndex(idx)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setPreviewIndex(idx);
-                }
-              }}
-              aria-label={`View full preview of ${project.title} screen ${idx + 1}`}
-            >
-              <img
-                src={img}
-                alt={`${project.title} screenshot ${idx + 1}`}
-                loading="lazy"
-              />
-              <div className="gallery-item-overlay">
-                <span className="gallery-item-badge">
-                  Screen {String(idx + 1).padStart(2, "0")}
-                </span>
-                <span className="gallery-item-action">
-                  <Maximize2 size={14} />
-                  <span>Preview</span>
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
 
       {/* Full-size preview lightbox modal */}
       <AnimatePresence>

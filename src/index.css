@@ -1296,6 +1296,111 @@ html.light .sp-card-link:hover .sp-tag-pill {
   color: #dc2626;
 }
 
+/* --- Tech Stack Logo Row --- */
+.sp-meta-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sp-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sp-tech-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+  cursor: default;
+}
+
+html.light .sp-tech-badge {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.sp-tech-badge:hover {
+  transform: translateY(-3px) scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(230, 57, 70, 0.4);
+  box-shadow: 0 6px 18px -4px rgba(230, 57, 70, 0.3);
+}
+
+html.light .sp-tech-badge:hover {
+  background: rgba(0, 0, 0, 0.07);
+  border-color: rgba(220, 38, 38, 0.35);
+  box-shadow: 0 6px 18px -4px rgba(220, 38, 38, 0.2);
+}
+
+.sp-card-link:hover .sp-tech-badge {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.sp-tech-logo {
+  width: 1.1rem;
+  height: 1.1rem;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  transition: filter 0.25s ease;
+}
+
+.sp-tech-badge:hover .sp-tech-logo {
+  filter: drop-shadow(0 2px 5px rgba(230, 57, 70, 0.25));
+}
+
+/* Tooltip on hover */
+.sp-tech-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(12, 12, 16, 0.92);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  padding: 0.22rem 0.55rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  z-index: 10;
+}
+
+html.light .sp-tech-tooltip {
+  background: rgba(20, 20, 24, 0.9);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.sp-tech-badge:hover .sp-tech-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* --- Quote Block & Explore CTA (Left column bottom / Mobile bottom) --- */
 .sp-left-bottom {
   display: flex;

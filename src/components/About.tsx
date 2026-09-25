@@ -172,7 +172,7 @@ export default function About() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7 }}
           >
-            <p className="about-role">Mobile & Frontend Developer</p>
+            <p className="about-role">Software Quality Assurance, Mobile & Frontend Developer</p>
             <h2 className="about-name">Sibgah Rabbani Kusuma</h2>
 
             <div ref={lanyardRef} className="about-lanyard">
