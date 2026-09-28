@@ -89,6 +89,18 @@ import iotDetection from "@/IoT Smart Traffic Light/1749530697598.jpg";
 import iotModelComparison from "@/IoT Smart Traffic Light/1749530731894.jpg";
 import iotLiveView1 from "@/IoT Smart Traffic Light/Screenshot 2026-09-25 190034.png";
 import iotLiveView2 from "@/IoT Smart Traffic Light/Screenshot 2026-09-25 190944.png";
+import iotFritzing from "@/IoT Smart Traffic Light/Screenshot 2026-09-25 215421.png";
+import iotFlowchart from "@/IoT Smart Traffic Light/Screenshot 2026-09-25 215430.png";
+import iotComponents from "@/IoT Smart Traffic Light/Screenshot 2026-09-25 215442.png";
+
+// IoT Automatic Pill Dispenser
+import pillDispenserThumb from "@/3dAssetThumbnail/Pill Dispenser.png";
+import pillPoster from "@/IoT Pill Dispenser/1.png";
+import pillCircuit from "@/IoT Pill Dispenser/2.png";
+import pillComponents from "@/IoT Pill Dispenser/Screenshot 2026-09-25 215649.png";
+import pillArchitecture from "@/IoT Pill Dispenser/Screenshot 2026-09-25 215658.png";
+import pillStates from "@/IoT Pill Dispenser/Screenshot 2026-09-25 215743.png";
+import pillCadModel from "@/IoT Pill Dispenser/Screenshot 2026-09-25 215802.png";
 
 function isCreativeBrandId(id: string): id is CreativeBrandId {
   return creativeBrands.some((brand) => brand.id === id);
@@ -795,7 +807,15 @@ const projectsData: Record<string, ProjectData> = {
       "Integrated physical LED traffic light hardware with the AI decision engine via GPIO and MQTT for closed-loop feedback.",
     ],
     thumbnail: iotThumb,
-    images: [iotLiveView1, iotDetection, iotModelComparison, iotLiveView2],
+    images: [
+      iotLiveView1,
+      iotDetection,
+      iotModelComparison,
+      iotLiveView2,
+      iotFlowchart,
+      iotFritzing,
+      iotComponents,
+    ],
     caseStudy: {
       overview: [
         "The IoT Smart Traffic Light is an AI-driven embedded system that replaces fixed-timer traffic signals with a dynamic, vision-based controller. It monitors four road lanes using camera feeds, detects and counts vehicles in real time with a custom YOLOv8 model, then computes optimal signal phases to minimize wait times and congestion.",
@@ -846,6 +866,92 @@ const projectsData: Record<string, ProjectData> = {
         "Achieved 0.9838 benchmark score with the custom surveillance.pt model",
         "Demonstrated feasibility of edge-AI traffic management on low-cost hardware",
         "Established a reusable pipeline for future smart city IoT deployments",
+      ],
+    },
+  },
+  "iot-pill-dispenser": {
+    id: "iot-pill-dispenser",
+    title: "Automatic Pill Dispenser",
+    subtitle: "IoT Smart Medication System for Better Health",
+    period: "2025",
+    role: "IoT Engineer & Hardware Designer",
+    type: "Embedded System & 3D Prototyping",
+    stack: [
+      "Arduino",
+      "ESP8266",
+      "ESP32",
+      "Blynk IoT",
+      "3D CAD / SolidWorks",
+      "C++",
+      "Sensors & Actuators",
+    ],
+    description:
+      "An automated smart medication dispensing device engineered with Arduino, ESP8266 Wi-Fi, and Blynk cloud integration. It features scheduled dosage alerts, real-time RTC clock synchronization, ultrasonic and infrared proximity sensors, and a precision stepper motor mechanism enclosed in a custom 3D-printed chassis.",
+    highlights: [
+      "Built a 3-layer IoT architecture (Perception, Network, Application) connecting real-time hardware sensors to the Blynk cloud dashboard.",
+      "Engineered a motorized dispensing carousel powered by a 28BYJ-48 stepper motor and ULN2003 driver, preventing double-dosing with state-based lockouts.",
+      "Designed and 3D-modeled the complete physical chassis, internal gear trains, and compartmentalized rotating drum in CAD.",
+      "Integrated DS3231 RTC module, LCD 1602 I2C display, and ultrasonic proximity detection for touchless medication release within 10cm.",
+    ],
+    thumbnail: pillDispenserThumb,
+    images: [
+      pillDispenserThumb,
+      pillPoster,
+      pillStates,
+      pillCadModel,
+      pillArchitecture,
+      pillCircuit,
+      pillComponents,
+    ],
+    caseStudy: {
+      overview: [
+        "The Automatic Pill Dispenser is a connected smart health solution designed to tackle medication non-adherence and missed dosage schedules among elderly patients and individuals requiring strict medication regimens.",
+        "The system combines embedded microcontrollers (Arduino Uno & ESP8266/ESP32), a DS3231 real-time clock, ultrasonic and IR sensors, a 16x2 LCD screen, and a custom 3D-printed carousel driven by a 28BYJ-48 stepper motor.",
+        "Patients receive timely alerts through the Blynk mobile app, while the device provides clear visual cues on its LCD ('Ready', 'Processing', 'Obat sudah siap'). Users trigger dosage extraction safely through ultrasonic hand presence detection (within 10 cm), ensuring hygiene and adherence tracking.",
+      ],
+      challenge:
+        "Patients taking daily prescriptions frequently forget their schedules, take duplicate doses, or face confusion with multiple pill bottles. Existing commercial dispensers are either non-networked timers or prohibitively expensive proprietary medical systems.",
+      problem: [
+        "High risk of missed doses or accidental double-dosing with conventional medicine organizers.",
+        "Lack of remote monitoring or notifications for caregivers when medication is not taken on time.",
+        "Mechanical pill dispensing requires high torque and exact angular positioning to avoid pill jams.",
+        "Sanitary dispensing demands contactless or touchless user interaction.",
+        "Tight coordination needed between local real-time clock timekeeping, Wi-Fi cloud synchronization, and motor actuation.",
+      ],
+      solution: [
+        "Implemented a 3-tier architecture: Perception layer (sensors & actuators), Network layer (ESP8266 Wi-Fi), and Application layer (Blynk cloud & mobile app).",
+        "Configured RTC DS3231 module with battery backup for millisecond-accurate local schedule execution even during network dropouts.",
+        "Created a touchless release mechanism using an HC-SR04 ultrasonic sensor that detects hand presence within 10 cm when a scheduled dose is active.",
+        "Engineered a partitioned rotating pill drum and gear assembly modeled in CAD and manufactured via 3D printing.",
+        "Integrated the Blynk IoT platform to allow real-time schedule customization, push notifications, and consumption logging for caregivers.",
+      ],
+      journey: [
+        "Formulated system requirements and designed the 3-layer architecture for reliable cloud-to-hardware communication.",
+        "Designed the multi-compartment carousel, gear-driven base, and electronics enclosure in 3D CAD software.",
+        "Prototyped the electronic circuitry on breadboard, integrating Arduino/ESP, RTC DS3231, LCD 1602 I2C, and ULN2003 stepper driver.",
+        "Programmed the firmware state machine handling Idle, Schedule Match, Hand Detection, Dispensing Rotation, and Consumption Verification states.",
+        "Tested 3D prints, refined mechanical clearances to prevent pill jamming, and conducted end-to-end timing validation with Blynk cloud alerts.",
+      ],
+      outcomes: [
+        "Fully functional automated pill dispenser prototype with cloud connectivity and interactive display feedback.",
+        "Seamless synchronization between Blynk mobile application and physical device schedule.",
+        "Touchless, reliable dosage release via ultrasonic sensor verification within 10 cm.",
+        "Rigid, compact custom 3D-printed chassis housing all sensors, controller boards, and mechanical linkages.",
+        "State lockouts preventing unauthorized or premature pill dispensing.",
+      ],
+      links: "—",
+      responsibilities: [
+        "Designing the end-to-end IoT system architecture and electrical schematics",
+        "Developing firmware for Arduino / ESP microcontrollers and RTC integration",
+        "3D modeling and mechanical design of the rotating pill carousel and chassis",
+        "Configuring Blynk IoT cloud dashboards and mobile push notifications",
+        "Integrating ultrasonic and IR proximity sensors with stepper motor control",
+        "Validating prototype reliability through iterative physical testing",
+      ],
+      impact: [
+        "Delivered a practical, cost-effective smart healthcare device prototype for patient independence",
+        "Minimized risk of dosage errors through automated time-gated dispensing locks",
+        "Provided peace of mind for families and caregivers through remote Blynk status updates",
       ],
     },
   },

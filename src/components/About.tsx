@@ -230,22 +230,25 @@ export default function About() {
           >
             <div className="about-block">
               <div className="about-block-head">
-                <span>Why Hire Me, Not AI</span>
+                <span>About Me</span>
                 <span className="about-block-line" />
               </div>
-              <h3 className="about-headline text-2xl md:text-3xl font-bold text-gray-900 dark:text-white leading-tight">
+              <h2 className="about-headline text-3xl sm:text-4xl md:text-5xl font-black leading-tight">
+                Why Hire Me, <em>Not AI</em>
+              </h2>
+              <p className="about-lead text-lg md:text-xl font-semibold leading-snug mb-3">
                 AI can generate code. <em>It can&apos;t own the outcome.</em>
-              </h3>
-              <p className="about-body text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
-                A prompt gives you a guess. I give you a product — I sit with
+              </p>
+              <p className="about-body text-base md:text-lg leading-relaxed max-w-2xl">
+                A prompt gives you a guess. I give you a product, I sit with
                 the real problem, connect <strong>business goals</strong> with{" "}
                 <strong>user needs</strong>, and make the judgment calls no
                 model can: what to build, what to cut, and why it matters.
               </p>
-              <p className="about-body text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
+              <p className="about-body text-base md:text-lg leading-relaxed max-w-2xl">
                 I catch the edge cases, debug the weird stuff, talk to
                 stakeholders, and take full ownership from wireframe to
-                production — accountable, adaptable, and invested in getting it
+                production, accountable, adaptable, and invested in getting it
                 right, not just getting it done.
               </p>
               <p className="about-quote">

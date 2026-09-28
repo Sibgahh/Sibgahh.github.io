@@ -10,6 +10,7 @@ import thesisThumbnail from '@/3dAssetThumbnail/thesis.png'
 import sibertahanThumbnail from '@/3dAssetThumbnail/Sibertahan.png'
 import hypermartThumbnail from '@/3dAssetThumbnail/Hypermart Warehouse.png'
 import iotThumbnail from '@/3dAssetThumbnail/IoT.png'
+import pillDispenserThumbnail from '@/3dAssetThumbnail/Pill Dispenser.png'
 import { brandVideoProjects } from '@/data/videos'
 import {
   coverForBrand,
@@ -110,6 +111,15 @@ export const portfolioItems: PortfolioItem[] = [
     category: 'Software Development',
     tags: ['IoT', 'Python', 'YOLOv8', 'Computer Vision', 'Raspberry Pi'],
     thumbnail: iotThumbnail,
+    featured: true,
+  },
+  {
+    id: 'iot-pill-dispenser',
+    title: 'Automatic Pill Dispenser',
+    subtitle: 'Smart Scheduled Medication System',
+    category: 'Software Development',
+    tags: ['IoT', 'Arduino', 'ESP8266', 'Blynk', 'Hardware', '3D CAD'],
+    thumbnail: pillDispenserThumbnail,
     featured: true,
   },
   {

@@ -38,6 +38,7 @@ const LOGOS: Record<string, string> = {
   tailwind:    D('tailwindcss'),
   nodejs:      D('nodejs'),
   prisma:      D('prisma'),
+  cplusplus:   D('cplusplus'),
 }
 
 interface TechBadge { name: string; icon: string }
@@ -95,7 +96,7 @@ const softwareProjects: FeaturedProject[] = [
     stack: [
       T('python', 'Python'),
       T('arduino', 'Arduino Uno'),
-      ],
+    ],
   },
   {
     id: 'sibertahan',

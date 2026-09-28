@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import OrbitImages from './ui/OrbitImages'
-import { useTheme } from '@/theme'
 
 import dartLogo from '@/logo/Dart-logo.png'
 import figmaLogo from '@/logo/Figma-logo.svg.png'
@@ -77,7 +76,6 @@ const categoryOrder: SkillCategory[] = [
 ]
 
 export default function SkillsShowcase() {
-  const { theme } = useTheme()
   const [showAll, setShowAll] = useState(false)
   const [activeFilter, setActiveFilter] = useState<SkillCategory | 'All'>('All')
 
@@ -158,9 +156,7 @@ export default function SkillsShowcase() {
           itemSize={130}
           responsive
           showPath
-          pathColor={
-            theme === "light" ? "rgba(20, 20, 24, 0.22)" : "rgba(255,255,255,0.14)"
-          }
+          pathColor="rgba(220, 38, 38, 0.7)"
           pathWidth={1.5}
           className="skills-orbit-images"
         />

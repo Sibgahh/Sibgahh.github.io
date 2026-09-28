@@ -963,16 +963,7 @@ html.light .hero-siderays {
   width: 100%;
   position: relative;
   overflow: hidden;
-  /* background: linear-gradient(
-    180deg,
-    #060608 0%,
-    #060608 40%,
-    #120305 60%,
-    #24050a 75%,
-    #3e0811 88%,
-    #520b16 96%,
-    #28050b 100%
-  ); */
+  background: #090305;
 }
 
 /* Softer, subtle atmospheric horizon glow along the bottom */
@@ -1942,7 +1933,7 @@ html.light .sp-tech-tooltip {
 
 /* ============== SKILLS SHOWCASE ============== */
 .skills-showcase-section {
-  padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+  padding: 0 clamp(1.5rem, 5vw, 4rem) clamp(5rem, 10vw, 8rem);
   max-width: 100%;
   margin: 0;
   width: 100%;
@@ -5559,6 +5550,261 @@ html.light .portfolio-card-tags span {
   }
 }
 
+/* ============== HOME WHITE SECTION (About to Skills Showcase) ============== */
+.home-white-section {
+  --bg: #faf7f5;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-card-solid: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-elevated: #ffffff;
+  --ink: #1a0609;
+  --ink-soft: #5e4e52;
+  --ink-muted: #8c7b80;
+  --accent: #1a0609;
+  --accent-soft: #ff2a3b;
+  --accent-glow: rgba(255, 42, 59, 0.18);
+  --accent-glow-strong: rgba(255, 42, 59, 0.35);
+  --line: rgba(35, 10, 15, 0.08);
+  --line-strong: rgba(35, 10, 15, 0.15);
+  --glass: rgba(35, 10, 15, 0.03);
+  --glass-border: rgba(35, 10, 15, 0.1);
+  --logo-pad: #ffffff;
+
+  background-color: #faf7f5;
+  color: #1a0609;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(35, 10, 15, 0.08);
+  border-bottom: 1px solid rgba(35, 10, 15, 0.08);
+}
+
+.home-white-section .about-section {
+  background: transparent;
+  color: #1a0609;
+}
+
+.home-white-section .about-name {
+  color: #1a0609;
+}
+
+.home-white-section .about-role {
+  color: #8c7b80;
+}
+
+.home-white-section .about-block-head {
+  color: #ff2a3b;
+}
+
+.home-white-section .about-block-icon {
+  color: #ff2a3b;
+}
+
+.home-white-section .about-block-line {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 42, 59, 0.55),
+    rgba(255, 42, 59, 0.08)
+  );
+}
+
+.home-white-section .about-headline {
+  color: #1a0609;
+}
+
+.home-white-section .about-headline em {
+  color: #ff2a3b;
+}
+
+.home-white-section .about-lead {
+  color: #1a0609;
+  font-family: var(--font-display);
+}
+
+.home-white-section .about-lead em {
+  font-style: italic;
+  color: #ff2a3b;
+}
+
+.home-white-section .about-body {
+  color: #5e4e52;
+}
+
+.home-white-section .about-body strong {
+  color: #1a0609;
+}
+
+.home-white-section .about-quote {
+  color: #8c7b80;
+  border-left: 2px solid rgba(255, 42, 59, 0.35);
+  padding-left: 0.75rem;
+}
+
+.home-white-section .about-lanyard::before {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(20, 5, 10, 0.38) 0%,
+    rgba(20, 5, 10, 0.14) 48%,
+    transparent 72%
+  );
+}
+
+.home-white-section .about-cert-thumb {
+  background: #ffffff;
+  border-color: rgba(35, 10, 15, 0.12);
+  box-shadow: 0 4px 14px rgba(35, 10, 15, 0.05);
+}
+
+.home-white-section .about-cert-thumb:hover {
+  border-color: rgba(255, 42, 59, 0.5);
+  box-shadow: 0 8px 24px rgba(255, 42, 59, 0.18);
+}
+
+.home-white-section .about-skill-pill {
+  background: rgba(35, 10, 15, 0.04);
+  border: 1px solid rgba(35, 10, 15, 0.1);
+  color: #1a0609;
+}
+
+.home-white-section .about-skill-pill:hover {
+  border-color: rgba(255, 42, 59, 0.45);
+  color: #ff2a3b;
+  background: rgba(255, 42, 59, 0.06);
+}
+
+.home-white-section .about-social {
+  background: #ff2a3b;
+  border-color: rgba(255, 42, 59, 0.45);
+  color: #ffffff;
+  box-shadow: 0 4px 14px -4px rgba(255, 42, 59, 0.45);
+}
+
+.home-white-section .about-social:hover {
+  background: #e61528;
+  border-color: rgba(255, 42, 59, 0.7);
+  color: #ffffff;
+  box-shadow: 0 10px 28px -6px rgba(255, 42, 59, 0.55);
+}
+
+.home-white-section .collab-section {
+  background: #FBBF24;
+}
+
+.home-white-section .collab-title {
+  color: #111827;
+}
+
+
+.home-white-section .skills-showcase-section {
+  background: transparent;
+  padding-top: 0;
+}
+
+.home-white-section .skills-ambient-orb-1 {
+  background: radial-gradient(circle, rgba(255, 42, 59, 0.1) 0%, transparent 70%);
+  opacity: 0.15;
+}
+
+.home-white-section .skills-ambient-orb-2 {
+  background: radial-gradient(circle, rgba(255, 87, 34, 0.08) 0%, transparent 70%);
+  opacity: 0.12;
+}
+
+.home-white-section .skills-showcase-header h2 {
+  color: #1a0609;
+}
+
+.home-white-section .skills-showcase-subtitle {
+  color: #6d5d61;
+}
+
+.home-white-section .skills-showcase-label {
+  color: #ff2a3b;
+  border-color: rgba(255, 42, 59, 0.3);
+  background: rgba(255, 42, 59, 0.06);
+}
+
+.home-white-section .skills-more-btn {
+  color: #ff2a3b;
+}
+
+.home-white-section .skills-orbit-wrapper .orbit-image-frame {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 10px 28px -10px rgba(35, 10, 15, 0.15),
+    0 0 0 1px rgba(35, 10, 15, 0.09);
+}
+
+.home-white-section .skills-marquee-item {
+  color: #5e4e52;
+}
+
+.home-white-section .skills-marquee-dot {
+  color: #ff2a3b;
+  opacity: 0.6;
+}
+
+.home-white-section .skills-modal {
+  background: #ffffff;
+  border-color: rgba(35, 10, 15, 0.12);
+  box-shadow: 0 30px 80px rgba(35, 10, 15, 0.2);
+}
+
+.home-white-section .skills-modal-header {
+  background: #f7f4f2;
+  border-bottom: 1px solid rgba(35, 10, 15, 0.08);
+}
+
+.home-white-section .skills-modal-title {
+  color: #1a0609;
+}
+
+.home-white-section .skills-modal-close {
+  color: #5e4e52;
+  border-color: rgba(35, 10, 15, 0.12);
+}
+
+.home-white-section .skills-modal-close:hover {
+  color: #ff2a3b;
+  border-color: rgba(255, 42, 59, 0.4);
+  background: rgba(255, 42, 59, 0.08);
+}
+
+.home-white-section .skills-modal-tabs {
+  border-bottom: 1px solid rgba(35, 10, 15, 0.08);
+}
+
+.home-white-section .skills-modal-tab {
+  color: #5e4e52;
+  border-color: rgba(35, 10, 15, 0.12);
+}
+
+.home-white-section .skills-modal-tab:hover {
+  color: #1a0609;
+  border-color: rgba(255, 42, 59, 0.4);
+}
+
+.home-white-section .skills-modal-tab.is-active {
+  background: linear-gradient(135deg, #ff2a3b, #c91424);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.home-white-section .skills-modal-item {
+  border-color: rgba(35, 10, 15, 0.08);
+  background: rgba(35, 10, 15, 0.02);
+}
+
+.home-white-section .skills-modal-item:hover {
+  border-color: rgba(255, 42, 59, 0.35);
+  background: rgba(255, 42, 59, 0.06);
+}
+
+.home-white-section .skills-modal-item-name {
+  color: #1a0609;
+}
+
 /* ============== ABOUT / LANYARD ============== */
 .about-section {
   padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
@@ -5616,18 +5862,37 @@ html.light .portfolio-card-tags span {
 .about-lanyard::before {
   content: "";
   position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62%;
+  height: 18%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.52) 0%,
+    rgba(0, 0, 0, 0.22) 45%,
+    transparent 72%
+  );
+  filter: blur(10px);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about-lanyard::after {
+  content: "";
+  position: absolute;
   top: 50%;
   left: 50%;
-  width: 130%;
-  height: 130%;
+  width: 80%;
+  height: 80%;
   transform: translate(-50%, -50%);
   background: radial-gradient(
-    circle,
-    var(--accent-glow-strong) 0%,
-    var(--accent-glow) 35%,
-    transparent 70%
+    ellipse at 50% 60%,
+    rgba(255, 42, 59, 0.07) 0%,
+    transparent 68%
   );
-  filter: blur(40px);
+  filter: blur(28px);
   z-index: 0;
   pointer-events: none;
 }
@@ -5637,7 +5902,7 @@ html.light .portfolio-card-tags span {
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
   touch-action: none;
 }
 
@@ -5687,22 +5952,16 @@ html.light .portfolio-card-tags span {
 .about-headline {
   margin: 0 0 1rem;
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.25;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
   color: var(--ink);
 }
 
-@media (min-width: 768px) {
-  .about-headline {
-    font-size: 1.875rem;
-  }
-}
-
 .about-headline em {
-  font-style: normal;
-  color: #e63946;
+  font-style: italic;
+  color: #ff2a3b;
 }
 
 .about-body {
@@ -5896,17 +6155,10 @@ html.light .portfolio-card-tags span {
   height: 4rem;
   display: flex;
   align-items: center;
-  opacity: 0.55;
-  filter: grayscale(1) brightness(1.15);
-  transition:
-    opacity 0.25s ease,
-    filter 0.25s ease,
-    transform 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .collab-item:hover {
-  opacity: 1;
-  filter: grayscale(0) brightness(1);
   transform: scale(1.1);
 }
 
@@ -5970,9 +6222,10 @@ html.light .portfolio-card-tags span {
   display: grid;
   place-items: center;
   border-radius: 0.75rem;
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg-card) 90%, transparent);
-  color: var(--ink-soft);
+  border: 1px solid rgba(255, 42, 59, 0.45);
+  background: #ff2a3b;
+  color: #ffffff;
+  box-shadow: 0 4px 14px -4px rgba(255, 42, 59, 0.5);
   transition:
     border-color 0.25s ease,
     background 0.25s ease,
@@ -5982,24 +6235,25 @@ html.light .portfolio-card-tags span {
 }
 
 .about-social:hover {
-  border-color: rgba(230, 57, 70, 0.5);
-  background: rgba(230, 57, 70, 0.12);
-  color: #ff6b7a;
+  background: #e61528;
+  border-color: rgba(255, 42, 59, 0.7);
+  color: #ffffff;
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px -6px rgba(230, 57, 70, 0.35);
+  box-shadow: 0 10px 28px -6px rgba(255, 42, 59, 0.6);
 }
 
 html.light .about-social {
-  background: #ffffff;
-  border-color: rgba(20, 20, 24, 0.12);
-  color: #3d3d46;
+  background: #ff2a3b;
+  border-color: rgba(255, 42, 59, 0.45);
+  color: #ffffff;
+  box-shadow: 0 4px 14px -4px rgba(255, 42, 59, 0.45);
 }
 
 html.light .about-social:hover {
-  border-color: rgba(230, 57, 70, 0.4);
-  background: rgba(230, 57, 70, 0.08);
-  color: #c62839;
-  box-shadow: 0 8px 24px -6px rgba(230, 57, 70, 0.22);
+  background: #e61528;
+  border-color: rgba(255, 42, 59, 0.7);
+  color: #ffffff;
+  box-shadow: 0 10px 28px -6px rgba(255, 42, 59, 0.55);
 }
 
 .about-social-icon {

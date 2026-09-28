@@ -17,9 +17,11 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <About />
-      <Collaborating />
-      <SkillsShowcase />
+      <div className="home-white-section">
+        <About />
+        <SkillsShowcase />
+        <Collaborating />
+      </div>
       <Projects />
       <Experience />
       <Services />
